@@ -8,3 +8,9 @@
 -   ### Material UI
     -   npm install --save @material-ui/core
     -   npm install --save @material-ui/icons
+
+## Things I added
+
+-   All mobile styling
+-   mobile navbar dropdown menu
+    -   https://ibaslogic.com/how-to-add-hamburger-menu-in-react/

@@ -1,45 +1,157 @@
-import { Chat, Notifications, Person, Search } from "@material-ui/icons";
+import {
+	Chat,
+	Notifications,
+	Person,
+	Search,
+	Menu,
+	Close,
+} from "@material-ui/icons";
+import { useEffect, useState } from "react";
+import React, { Link } from "react";
 import "./Topbar.css";
 
-const Topbar = () => {
+function Topbar() {
+	// detect if on desktop or mobile
+	const [isDesktop, setDesktop] = useState(window.innerWidth > 700);
+	// navbar open close
+	const [navbarOpen, setNavbarOpen] = useState(false);
+
+	const updateMedia = () => {
+		setDesktop(window.innerWidth > 700);
+	};
+
+	useEffect(() => {
+		window.addEventListener("resize", updateMedia);
+		return () => window.removeEventListener("resize", updateMedia);
+	});
+
+	// navbar handleToggle
+	const handleToggle = () => {
+		setNavbarOpen((prev) => !prev);
+	};
+
+	// close mobile menu
+	const closeMenu = () => {
+		setNavbarOpen(false);
+	};
+
 	return (
-		<div className="topbarContainer">
-			<div className="topbarLeft">
-				<span className="logo">Reactsocial</span>
-			</div>
-			<div className="topbarCenter">
-				<div className="searchbar">
-					<Search />
-					<input
-						type="text"
-						placeholder="Search for your friends!"
-						className="searchInput"
-					/>
-				</div>
-			</div>
-			<div className="topbarRight">
-				<div className="topbarLinks">
-					<span className="topbarLink">Homepage</span>
-					<span className="topbarLink">Timeline</span>
-				</div>
-				<div className="topbarIcons">
-					<div className="topbarIconItem">
-						<Person />
-						<span className="topbarIconBage">1</span>
+		<div>
+			{isDesktop ? (
+				<div className="topbarContainer">
+					<div className="topbarLeft">
+						<div className="topbarLeft">
+							<img
+								src="/logo512.png"
+								alt="react"
+								className="logo-img"
+							/>
+							<span className="logo">reactsocial</span>
+						</div>
 					</div>
-					<div className="topbarIconItem">
-						<Chat />
-						<span className="topbarIconBage">2</span>
+					<div className="topbarCenter">
+						<div className="searchbar">
+							<Search className="searchIcon" />
+							<input
+								type="text"
+								placeholder="Search for your friends!"
+								className="searchInput"
+							/>
+						</div>
 					</div>
-					<div className="topbarIconItem">
-						<Notifications />
-						<span className="topbarIconBage">1</span>
+					<div className="topbarRight">
+						<div className="topbarLinks">
+							<span className="topbarLink">Homepage</span>
+							<span className="topbarLink">Timeline</span>
+						</div>
+						<div className="topbarIcons">
+							<div className="topbarIconItem">
+								<Person />
+								<span className="topbarIconBadge">1</span>
+							</div>
+							<div className="topbarIconItem">
+								<Chat />
+								<span className="topbarIconBadge">2</span>
+							</div>
+							<div className="topbarIconItem">
+								<Notifications />
+								<span className="topbarIconBadge">1</span>
+							</div>
+						</div>
+						<img
+							src="/assets/person/1.jpeg"
+							alt=""
+							className="topbarImg"
+						/>
 					</div>
 				</div>
-				<img src="/assets/person/1.jpeg" alt="" />
-			</div>
+			) : (
+				<div className="topbarContainer">
+					<div className="topbarLeft">
+						<img
+							src="/logo512.png"
+							alt="react"
+							className="logo-img"
+						/>
+						<span className="logo">social</span>
+					</div>
+					{/* <div className="topbarCenter">
+						<div className="searchbar">
+							<Search className="searchIcon" />
+							<input
+								type="text"
+								placeholder="Search for your friends!"
+								className="searchInput"
+							/>
+						</div>
+					</div> */}
+					<div className="topbarRight">
+						{/* <div className="topbarLinks">
+							<span className="topbarLink">Homepage</span>
+							<span className="topbarLink">Timeline</span>
+						</div> */}
+						<div className="topbarIcons">
+							<div className="topbarIconItem">
+								<Person />
+								<span className="topbarIconBadge">1</span>
+							</div>
+							<div className="topbarIconItem">
+								<Chat />
+								<span className="topbarIconBadge">2</span>
+							</div>
+							<div className="topbarIconItem">
+								<Notifications />
+								<span className="topbarIconBadge">1</span>
+							</div>
+						</div>
+						<img
+							src="/assets/person/1.jpeg"
+							alt=""
+							className="topbarImg"
+						/>
+						<nav className="navBar">
+							<button onClick={handleToggle}>
+								{navbarOpen ? (
+									<Close className="hamburger-icon" />
+								) : (
+									<Menu className="hamburger-icon" />
+								)}
+							</button>
+							<ul
+								className={`menuNav ${
+									navbarOpen ? " showMenu" : ""
+								}`}
+							>
+								<li>Homepage</li>
+								<li>Timeline</li>
+								<li>What it do</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			)}
 		</div>
 	);
-};
+}
 
 export default Topbar;
