@@ -7,6 +7,7 @@
 	position: sticky;
 	top: 0;
 	z-index: 999;
+	border-bottom: solid 1px white;
 }
 
 .topbarLeft {
@@ -184,13 +185,11 @@
 		width: 100vw;
 		overflow: hidden;
 		z-index: 9;
-		border-bottom: 1px solid white;
-		border-top: 1px solid white;
-		-webkit-transition: all 0.7s ease;
-		-moz-transition: all 0.7s ease;
-		-ms-transition: all 0.7s ease;
-		-o-transition: all 0.7s ease;
-		transition: all 0.7s ease;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
 	}
 
 	.menuNav.showMenu {
@@ -203,12 +202,13 @@
 		background-color: #1877f2;
 		padding: 10px 0px;
 		margin: 0px;
-		-webkit-transition: all 0.7s ease;
-		-moz-transition: all 0.7s ease;
-		-ms-transition: all 0.7s ease;
-		-o-transition: all 0.7s ease;
-		transition: all 0.7s ease;
 		border-bottom: 1px solid white;
+		border-top: 1px solid white;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
 	}
 
 	.menuNav > li {

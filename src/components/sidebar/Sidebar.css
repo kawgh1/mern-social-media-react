@@ -2,6 +2,80 @@
 	flex: 3;
 	height: calc(100vh - 70px);
 	background-color: greenyellow;
+	overflow-y: scroll;
+}
+/* COMPONENT SCROLL BAR */
+/* Only Chrome */
+.sidebar::-webkit-scrollbar {
+	width: 5px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+	background-color: rgb(179, 179, 179);
+	background-clip: padding-box;
+	border: 1px solid #8ea5b5;
+}
+.sidebar::-webkit-scrollbar-track {
+	background-color: #f1f1f1;
+}
+::-webkit-scrollbar-button {
+	background-color: #8ea5b5;
+}
+/* Only IE */
+.sidebar {
+	scrollbar-face-color: #f1f1f1;
+	scrollbar-shadow-color: rgb(179, 179, 179);
+	scrollbar-highlight-color: #8ea5b5;
+}
+/* Only FireFox */
+.sidebar {
+	scrollbar-color: #d8d8d8 rgb(179, 179, 179);
+	scrollbar-width: thin;
+	scrollbar-width: 5px;
+}
+/* View Scrollbar */
+.sidebar {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	scrollbar-width: thin;
+	scrollbar-width: 5px;
+}
+
+.sidebarWrapper {
+	padding: 20px;
+}
+
+.sidebarList {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.sidebarListItem {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.sidebarIcon {
+	margin-right: 15px;
+}
+
+.sidebarButton {
+	width: 150px;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+	font-weight: 500;
+}
+
+.sidebarHr {
+	margin: 20px 0;
+}
+
+.sidebarFriendList {
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
 
 /* media queries */
