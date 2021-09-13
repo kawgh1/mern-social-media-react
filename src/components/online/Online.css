@@ -14,6 +14,7 @@
 	height: 40px;
 	border-radius: 50%;
 	object-fit: cover;
+	border: 1px solid rgb(190, 203, 247);
 }
 
 .rightbarOnline {

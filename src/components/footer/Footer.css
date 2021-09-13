@@ -1,0 +1,62 @@
+.footer {
+	background-color: #1877f2;
+	z-index: 999;
+	order: 10;
+	bottom: 0;
+	position: fixed;
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+	-webkit-box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+	-moz-box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+	border-top: 1px white solid;
+}
+
+.footer__options {
+	display: flex;
+	background-color: #1877f2;
+	align-items: center;
+	justify-content: center;
+
+	padding-top: 5px;
+	height: 50px;
+}
+
+.footerIcons {
+	display: flex;
+	background-color: #1877f2;
+	width: 100vw;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.footerIconBadge {
+	width: 15px;
+	height: 15px;
+	background-color: red;
+	border-radius: 50%;
+	color: white;
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+}
+
+.footerIcons {
+	display: flex;
+	color: white;
+}
+
+.footerIconItem {
+	margin-right: 15px;
+	cursor: pointer;
+	position: relative;
+}
+
+.footerIconItem:hover {
+	color: #ccfcfc;
+}

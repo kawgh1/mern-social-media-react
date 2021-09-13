@@ -1,7 +1,8 @@
 import React from "react";
 import "./Share.css";
-import { PermMedia, Label, Room, EmojiEmotions } from "@material-ui/icons";
+import { PermMedia, Room } from "@material-ui/icons";
 
+import ContactsOutlinedIcon from "@material-ui/icons/ContactsOutlined";
 function Share() {
 	return (
 		<div className="share">
@@ -21,31 +22,25 @@ function Share() {
 				<div className="shareBottom">
 					<div className="shareOptions">
 						<div className="shareOption">
-							<PermMedia
-								htmlColor="tomato"
-								className="shareIcon"
-							/>
-							<span className="shareOptionText">
-								Photo or Video
-							</span>
+							<PermMedia htmlColor="gold" className="shareIcon" />
+							<span className="shareOptionText">Media</span>
 						</div>
 						<div className="shareOption">
-							<Label htmlColor="blue" className="shareIcon" />
-							<span className="shareOptionText">Tag</span>
-						</div>
-						<div className="shareOption">
-							<Room htmlColor="green" className="shareIcon" />
+							<Room htmlColor="coral" className="shareIcon" />
 							<span className="shareOptionText">Location</span>
 						</div>
 						<div className="shareOption">
-							<EmojiEmotions
-								htmlColor="goldenrod"
+							<ContactsOutlinedIcon
+								htmlColor="#156cc4"
 								className="shareIcon"
 							/>
-							<span className="shareOptionText">Feelings</span>
+							<span className="shareOptionText">Tag</span>
+						</div>
+
+						<div className="shareOption">
+							<button className="shareButton">Share</button>
 						</div>
 					</div>
-					<button className="shareButton">Share</button>
 				</div>
 			</div>
 		</div>

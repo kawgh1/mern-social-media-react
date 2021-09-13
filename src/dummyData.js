@@ -59,14 +59,14 @@ export const Posts = [
 		date: "5 mins ago",
 		userId: 1,
 		like: 32,
-		comment: 9,
+		comment: 0,
 	},
 	{
 		id: 2,
 		photo: "assets/post/2.jpeg",
 		date: "15 mins ago",
 		userId: 2,
-		like: 2,
+		like: 0,
 		comment: 1,
 	},
 	{

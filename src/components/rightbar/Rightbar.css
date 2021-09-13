@@ -1,85 +1,98 @@
 .rightbar {
 	flex: 3.5;
 	height: calc(100vh - 70px);
-	background-color: rgb(39, 88, 128);
+	background-color: rgb(43, 93, 134);
+	color: rgb(255, 255, 255);
+	border: 1px solid white;
 }
 
 /* COMPONENT SCROLL BAR */
 /* Only Chrome */
 .rightbar::-webkit-scrollbar {
-	width: 5px;
+	width: 10px;
 }
 .rightbar::-webkit-scrollbar-thumb {
-	background-color: rgb(179, 179, 179);
-	background-clip: padding-box;
-	border: 1px solid #8ea5b5;
+	background-color: #c4c4c4;
 }
+
 .rightbar::-webkit-scrollbar-track {
-	background-color: #f1f1f1;
+	background-color: rgb(218, 218, 218);
 }
-::-webkit-scrollbar-button {
-	background-color: #8ea5b5;
+.rightbar::-webkit-scrollbar-button {
+	background-color: #c4c4c4;
 }
 /* Only IE */
 .rightbar {
-	scrollbar-face-color: #f1f1f1;
-	scrollbar-shadow-color: rgb(179, 179, 179);
-	scrollbar-highlight-color: #8ea5b5;
+	scrollbar-face-color: #c4c4c4;
+	scrollbar-shadow-color: rgb(218, 218, 218);
+	scrollbar-highlight-color: #c4c4c4;
 }
 /* Only FireFox */
 .rightbar {
-	scrollbar-color: #d8d8d8 rgb(179, 179, 179);
+	scrollbar-color: #c4c4c4 rgb(218, 218, 218);
 	scrollbar-width: thin;
-	scrollbar-width: 5px;
+	scrollbar-width: 10px;
 }
 /* View Scrollbar */
 .rightbar {
 	overflow-y: scroll;
 	overflow-x: hidden;
 	scrollbar-width: thin;
-	scrollbar-width: 5px;
+	scrollbar-width: 10px;
 }
 
 .rightbarWrapper {
-	padding: 20px 20px 0 0;
+	padding: 20px 20px;
+	display: flex;
+	flex-direction: column;
 }
 
 .birthdayContainer {
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	padding: 5px 10px;
 }
 
 .birthdayImg {
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	margin-right: 10px;
+	padding-bottom: 5px;
 }
 
 .birthdayText {
 	font-weight: 300;
-	font-size: 15px;
+	font-size: 16px;
 }
 
 .rightbarAd {
 	width: 100%;
 	border-radius: 10px;
 	margin: 30px 0;
+	border: 1px solid rgb(190, 190, 190);
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 }
 
 .rightbarTitle {
 	margin-bottom: 20px;
-}
-
-.rightbarFriendList {
-	padding: 0;
-	margin: 0;
-	list-style: none;
-}
-
-.rightbarTitle {
+	margin-left: 20px;
 	font-size: 18px;
 	font-weight: 500;
 	margin-bottom: 10px;
+	text-shadow: 1px 1px rgb(44, 44, 44);
+	letter-spacing: 0.5px;
+}
+
+.rightbarFriendList {
+	padding: 20px;
+	margin: 0;
+	list-style: none;
+	border-radius: 10px;
+	border: 1px solid rgb(207, 207, 207);
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 }
 
 .rightbarInfo {
@@ -122,7 +135,18 @@
 
 /*  media queries */
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
+	.rightbar {
+		font-size: 12px;
+	}
+
+	.birthdayText {
+		font-weight: 300;
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width: 800px) {
 	.rightbar {
 		order: 2;
 		height: fit-content;

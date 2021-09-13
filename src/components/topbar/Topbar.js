@@ -7,17 +7,17 @@ import {
 	Close,
 } from "@material-ui/icons";
 import { useEffect, useState } from "react";
-import React, { Link } from "react";
+import React from "react";
 import "./Topbar.css";
 
 function Topbar() {
 	// detect if on desktop or mobile
-	const [isDesktop, setDesktop] = useState(window.innerWidth > 700);
+	const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
 	// navbar open close
 	const [navbarOpen, setNavbarOpen] = useState(false);
 
 	const updateMedia = () => {
-		setDesktop(window.innerWidth > 700);
+		setDesktop(window.innerWidth > 800);
 	};
 
 	useEffect(() => {
@@ -31,9 +31,9 @@ function Topbar() {
 	};
 
 	// close mobile menu
-	const closeMenu = () => {
-		setNavbarOpen(false);
-	};
+	// const closeMenu = () => {
+	// 	setNavbarOpen(false);
+	// };
 
 	return (
 		<div>
@@ -104,50 +104,55 @@ function Topbar() {
 								className="searchInput"
 							/>
 						</div>
-					</div> */}
+					</div>
 					<div className="topbarRight">
 						{/* <div className="topbarLinks">
 							<span className="topbarLink">Homepage</span>
 							<span className="topbarLink">Timeline</span>
-						</div> */}
+						</div> 
 						<div className="topbarIcons">
 							<div className="topbarIconItem">
-								<Person />
+								<Person
+									style={{ height: "30px", width: "30px" }}
+								/>
 								<span className="topbarIconBadge">1</span>
 							</div>
 							<div className="topbarIconItem">
-								<Chat />
+								<Chat
+									style={{ height: "30px", width: "30px" }}
+								/>
 								<span className="topbarIconBadge">2</span>
 							</div>
 							<div className="topbarIconItem">
-								<Notifications />
+								<Notifications
+									style={{ height: "30px", width: "30px" }}
+								/>
 								<span className="topbarIconBadge">1</span>
 							</div>
-						</div>
-						<img
-							src="/assets/person/1.jpeg"
-							alt=""
-							className="topbarImg"
-						/>
-						<nav className="navBar">
-							<button onClick={handleToggle}>
-								{navbarOpen ? (
-									<Close className="hamburger-icon" />
-								) : (
-									<Menu className="hamburger-icon" />
-								)}
-							</button>
-							<ul
-								className={`menuNav ${
-									navbarOpen ? " showMenu" : ""
-								}`}
-							>
-								<li>Homepage</li>
-								<li>Timeline</li>
-								<li>What it do</li>
-							</ul>
-						</nav>
-					</div>
+						</div>*/}
+					<img
+						src="/assets/person/1.jpeg"
+						alt=""
+						className="topbarImg"
+					/>
+					<nav className="navBar">
+						<button onClick={handleToggle}>
+							{navbarOpen ? (
+								<Close className="hamburger-icon" />
+							) : (
+								<Menu className="hamburger-icon" />
+							)}
+						</button>
+						<ul
+							className={`menuNav ${
+								navbarOpen ? " showMenu" : ""
+							}`}
+						>
+							<li>Homepage</li>
+							<li>Timeline</li>
+							<li>What it do</li>
+						</ul>
+					</nav>
 				</div>
 			)}
 		</div>

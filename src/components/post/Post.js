@@ -5,6 +5,7 @@ import { Users } from "../../dummyData";
 
 function Post({ post }) {
 	const [like, setLike] = useState(post.like);
+	// has user liked the post?
 	const [isLiked, setIsLiked] = useState(false);
 
 	const likeHandler = () => {
@@ -20,15 +21,17 @@ function Post({ post }) {
 						<img
 							className="postProfileImg"
 							src={
-								Users.filter((u) => u.id === post?.userId)[0]
-									.profilePicture
+								Users.filter(
+									(user) => user.id === post?.userId
+								)[0].profilePicture
 							}
 							alt=""
 						/>
 						<span className="postUsername">
 							{
-								Users.filter((u) => u.id === post?.userId)[0]
-									.username
+								Users.filter(
+									(user) => user.id === post?.userId
+								)[0].username
 							}
 						</span>
 						<span className="postDate">{post.date}</span>
@@ -56,12 +59,28 @@ function Post({ post }) {
 							alt=""
 						/>
 						<span className="postLikeCounter">
-							{like} people like it
+							{like > 0 ? (
+								like === 1 ? (
+									<p>{like} person likes it</p>
+								) : (
+									<p>{like} people like it</p>
+								)
+							) : (
+								""
+							)}
 						</span>
 					</div>
 					<div className="postBottomRight">
 						<span className="postCommentText">
-							{post.comment} comments
+							{post.comment > 0 ? (
+								post.comment === 1 ? (
+									<p>{post.comment} comment</p>
+								) : (
+									<p>{post.comment} comments</p>
+								)
+							) : (
+								""
+							)}
 						</span>
 					</div>
 				</div>

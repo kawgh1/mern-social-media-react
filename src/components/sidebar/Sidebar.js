@@ -56,13 +56,17 @@ function Sidebar() {
 						<School className="sidebarIcon" />
 						<span className="sidebarListItemText">Courses</span>
 					</li>
+					<li className="sidebarListItem"></li>
 				</ul>
 				{/* Button */}
-				<button className="sidebarButton">Show More</button>
+				<div className="buttonDiv">
+					<button className="sidebarButton">Show More</button>
+				</div>
+
 				<hr className="sidebarHr" />
 				<ul className="sidebarFriendList">
-					{Users.map((u) => (
-						<CloseFriend key={u.id} user={u} />
+					{Users.map((user) => (
+						<CloseFriend key={user.id} user={user} />
 					))}
 				</ul>
 			</div>
