@@ -12,9 +12,10 @@
 ## Things I added
 
 -   All mobile styling
--   mobile navbar dropdown menu
+-   mobile topbar dropdown menu
     -   https://ibaslogic.com/how-to-add-hamburger-menu-in-react/
--   Custom scrollbars across all browsers
+-   mobile bottombar for navigation between pages
+-   Custom scrollbars
 -   Accurate Comment and Like Counter w/ proper English in Post.js
 
         <span className="postLikeCounter">
