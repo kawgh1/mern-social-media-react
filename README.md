@@ -15,15 +15,16 @@
 -   mobile navbar dropdown menu
     -   https://ibaslogic.com/how-to-add-hamburger-menu-in-react/
 -   Custom scrollbars across all browsers
--   Accurate Comment and Like Counter w/ proper English
-    <span className="postLikeCounter">
-    {like > 0 ? (
-    like === 1 ? (
-    <p>{like} person likes it</p>
-    ) : (
-    <p>{like} people like it</p>
-    )
-    ) : (
-    ""
-    )}
-    </span>
+-   Accurate Comment and Like Counter w/ proper English in Post.js
+
+        <span className="postLikeCounter">
+            {like > 0 ? (
+                like === 1 ? (
+                    <p>{like} person likes it</p>
+                ) : (
+                    <p>{like} people like it</p>
+                )
+                ) : (
+                ""
+            )}
+        </span>
