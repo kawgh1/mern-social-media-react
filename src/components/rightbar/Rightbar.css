@@ -1,7 +1,12 @@
 .rightbar {
 	flex: 3;
 	height: calc(100vh - 70px);
-	background-color: rgb(43, 93, 134);
+	background: rgb(24, 119, 242);
+	background: linear-gradient(
+		170deg,
+		rgb(16, 69, 139) -10%,
+		rgba(200, 200, 255, 1) 90%
+	);
 	color: rgb(255, 255, 255);
 	border: 1px solid white;
 }

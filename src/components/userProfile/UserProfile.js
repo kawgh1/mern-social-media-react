@@ -2,15 +2,20 @@ import { CallReceived } from "@material-ui/icons";
 import React from "react";
 import { Users } from "../../dummyData";
 import Online from "../online/Online";
+import Post from "../post/Post";
+import Share from "../share/Share";
 import "./UserProfile.css";
+import { Posts } from "../../dummyData";
 
 function Profile() {
 	return (
 		<div
 			className="profile"
 			style={{
-				backgroundImage: `url(${"/assets/profile-colors.jpg"})`,
+				backgroundImage: `url(${"/assets/profile-colors8.webp"})`,
 				backgroundRepeat: "no-repeat",
+				backgroundPosition: "center center",
+				backgroundSize: "fill",
 			}}
 		>
 			<div className="profileRight">
@@ -118,6 +123,13 @@ function Profile() {
 							</span>
 						</div>
 					</div>
+				</div>
+				<hr />
+				{/* Feed */}
+				<div className="feedWrapper">
+					{Posts.map((post) => (
+						<Post key={post.id} post={post} />
+					))}
 				</div>
 			</div>
 		</div>

@@ -61,9 +61,9 @@ function Post({ post }) {
 						<span className="postLikeCounter">
 							{like > 0 ? (
 								like === 1 ? (
-									<p>{like} person likes it</p>
+									<p>{like} like</p>
 								) : (
-									<p>{like} people like it</p>
+									<p>{like} likes</p>
 								)
 							) : (
 								""

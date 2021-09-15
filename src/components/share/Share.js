@@ -14,7 +14,7 @@ function Share() {
 						alt=""
 					/>
 					<input
-						placeholder="What's in your mind Safak?"
+						placeholder="What's on your mind Safak?"
 						className="shareInput"
 					/>
 				</div>

@@ -7,7 +7,7 @@
 
 .profileRight {
 	flex: 12;
-	color: white;
+	color: rgb(31, 38, 80);
 }
 
 /* COMPONENT SCROLL BAR */
@@ -49,11 +49,14 @@
 	height: 250px;
 	object-fit: cover;
 	border-bottom: 1px solid white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .profileUserImg {
-	width: 150px;
-	height: 150px;
+	width: 140px;
+	height: 140px;
 	border-radius: 50%;
 	object-fit: cover;
 	position: absolute;
@@ -81,7 +84,7 @@
 	border: 1px solid rgb(243, 243, 243);
 	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-	background-color: rgba(200, 200, 200, 0.3);
+	background-color: rgba(243, 243, 243, 0.5);
 }
 
 .profileInfoName {
@@ -99,12 +102,12 @@
 	align-items: flex-start;
 	justify-content: center;
 	border-radius: 10px;
-	margin: 10px 30px 200px;
+	margin: 10px 30px 50px;
 	border: 1px solid rgb(243, 243, 243);
 	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 	padding: 10px;
-	background-color: rgba(150, 150, 150, 0.3);
+	background-color: rgba(243, 243, 243, 0.6);
 }
 
 .profileTitle {
@@ -140,7 +143,7 @@
 	line-height: 20px;
 	font-weight: bold;
 	font-size: 20px;
-	color: rgb(255, 255, 255);
+	color: rgb(73, 45, 45);
 }
 
 .profileInfoValue {
@@ -177,9 +180,19 @@
 .profileFollowingName {
 	/* ellipsis if long name */
 	font-size: 12px;
-	font-weight: 500;
+	letter-spacing: 0.5px;
+	font-weight: 700;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	width: 80px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 800px) {
+	.profileUserImg {
+		height: 115px;
+		width: 115px;
+		top: 170px;
+	}
 }
