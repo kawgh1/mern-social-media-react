@@ -196,4 +196,25 @@
 		width: 115px;
 		top: 170px;
 	}
+
+	.profileTitle {
+		font-size: 18px;
+	}
+
+	.profileInfoName {
+		font-size: 20px;
+		font-weight: 500;
+	}
+
+	.profileInfoDesc {
+		font-weight: 400;
+		font-size: 16px;
+	}
+
+	.profileInfoKey {
+		font-size: 16px;
+	}
+	.profileInfoValue {
+		font-size: 14px;
+	}
 }
