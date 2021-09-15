@@ -24,7 +24,14 @@ const Home = () => {
 			{isDesktop ? (
 				<>
 					<Topbar />
-					<div className="homeContainer">
+					<div
+						className="homeContainer"
+						style={{
+							backgroundImage: `url(${"/assets/feed-colors2.jpg"})`,
+							backgroundRepeat: "no-repeat",
+							backgroundPosition: "center center",
+						}}
+					>
 						<Sidebar />
 						<Feed />
 						<Rightbar />

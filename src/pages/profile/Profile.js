@@ -24,7 +24,15 @@ const Profile = () => {
 			{isDesktop ? (
 				<>
 					<Topbar />
-					<div className="profile">
+					<div
+						className="profile"
+						style={{
+							backgroundImage: `url(${"/assets/profile-colors8.webp"})`,
+							backgroundRepeat: "no-repeat",
+							backgroundPosition: "center center",
+							backgroundSize: "fill",
+						}}
+					>
 						<Sidebar />
 						<UserProfile />
 						<Rightbar />

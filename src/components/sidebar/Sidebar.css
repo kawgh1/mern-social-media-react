@@ -4,8 +4,8 @@
 	background: rgb(24, 119, 242);
 	background: linear-gradient(
 		200deg,
-		rgb(44, 126, 233) 10%,
-		rgba(29, 35, 65, 1) 80%
+		rgb(44, 126, 233, 0.95) 10%,
+		rgba(29, 35, 65, 0.9) 80%
 	);
 	color: white;
 	overflow-y: scroll;

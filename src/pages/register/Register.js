@@ -2,13 +2,20 @@ import "./Register.css";
 
 export default function Register() {
 	return (
-		<div className="register">
+		<div
+			className="register"
+			style={{
+				backgroundImage: `url(${"/assets/profile-colors.jpg"})`,
+				backgroundRepeat: "no-repeat",
+				backgroundPosition: "center center",
+				backgroundSize: "fill",
+			}}
+		>
 			<div className="registerWrapper">
 				<div className="registerLeft">
 					<h3 className="registerLogo">reactsocial</h3>
 					<span className="registerDesc">
-						Connect with friends around the world on{" "}
-						<span className="react-span">reactsocial</span>
+						Connect with friends around the world!
 					</span>
 				</div>
 				<div className="registerRight">
