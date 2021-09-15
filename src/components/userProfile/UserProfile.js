@@ -1,3 +1,4 @@
+import { CallReceived } from "@material-ui/icons";
 import React from "react";
 import { Users } from "../../dummyData";
 import Online from "../online/Online";
@@ -63,7 +64,7 @@ function Profile() {
 								className="profileFollowingImg"
 							/>
 							<span className="profileFollowingName">
-								John Carter
+								Joasdfhn Carasdfter
 							</span>
 						</div>
 						<div className="profileFollowing">
@@ -73,7 +74,7 @@ function Profile() {
 								className="profileFollowingImg"
 							/>
 							<span className="profileFollowingName">
-								John Carter
+								John Caasdfasfasfasfrter
 							</span>
 						</div>
 						<div className="profileFollowing">
@@ -83,7 +84,7 @@ function Profile() {
 								className="profileFollowingImg"
 							/>
 							<span className="profileFollowingName">
-								John Carter
+								Jasdfasdfohn Carter
 							</span>
 						</div>
 						<div className="profileFollowing">
