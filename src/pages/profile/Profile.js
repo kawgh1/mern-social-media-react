@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Feed from "../../components/feed/Feed";
 import Footer from "../../components/footer/Footer";
 import Rightbar from "../../components/rightbar/Rightbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
+import UserProfile from "../../components/userProfile/UserProfile";
 import "./Profile.css";
 
-function Profile() {
+const Profile = () => {
 	// detect if on desktop or mobile
 	const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
 
@@ -26,18 +26,19 @@ function Profile() {
 					<Topbar />
 					<div className="profile">
 						<Sidebar />
-						<Profile />
+						<UserProfile />
+						<Rightbar />
 					</div>
 				</>
 			) : (
 				<>
 					<Topbar />
-					<Profile />
+					<UserProfile />
 					<Footer />
 				</>
 			)}
 		</>
 	);
-}
+};
 
 export default Profile;

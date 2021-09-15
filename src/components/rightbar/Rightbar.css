@@ -1,5 +1,5 @@
 .rightbar {
-	flex: 3.5;
+	flex: 3;
 	height: calc(100vh - 70px);
 	background-color: rgb(43, 93, 134);
 	color: rgb(255, 255, 255);

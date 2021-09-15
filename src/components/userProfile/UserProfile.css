@@ -1,0 +1,171 @@
+.profile {
+	display: flex;
+	flex: 6;
+	overflow-y: auto;
+	height: calc(100vh - 70px);
+}
+
+.profileRight {
+	flex: 12;
+	color: white;
+	text-shadow: 1px 1px lightgray;
+}
+
+/* COMPONENT SCROLL BAR */
+/* Only Chrome */
+.profile::-webkit-scrollbar {
+	width: 10px;
+}
+.profile::-webkit-scrollbar-thumb {
+	background-color: #c4c4c4;
+}
+
+.profile::-webkit-scrollbar-track {
+	background-color: rgb(218, 218, 218);
+}
+.profile::-webkit-scrollbar-button {
+	background-color: #c4c4c4;
+}
+/* Only IE */
+.profile {
+	scrollbar-face-color: #c4c4c4;
+	scrollbar-shadow-color: rgb(218, 218, 218);
+	scrollbar-highlight-color: #c4c4c4;
+}
+/* Only FireFox */
+.profile {
+	scrollbar-color: #c4c4c4 rgb(218, 218, 218);
+	scrollbar-width: thin;
+	scrollbar-width: 10px;
+}
+/* View Scrollbar */
+
+.profileCover {
+	height: 320px;
+	position: relative;
+}
+
+.profileCoverImg {
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+}
+
+.profileUserImg {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 150px;
+	border: 1px solid rgb(190, 203, 247);
+	outline: 2px solid white;
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
+
+.profileUserImg:hover {
+	filter: brightness(120%);
+}
+
+.profileInfoTop {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	margin: 10px 30px;
+	border: 1px solid rgb(243, 243, 243);
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
+
+.profileInfoName {
+	font-size: 26px;
+}
+
+.profileInfoDesc {
+	font-weight: 400;
+	font-size: 18px;
+}
+
+.profileRightBottom {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	border-radius: 10px;
+	margin: 10px 30px 200px;
+	border: 1px solid rgb(243, 243, 243);
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	padding: 10px;
+}
+
+.profileTitle {
+	margin: 10px;
+	font-size: 24px;
+	font-weight: 500;
+	text-shadow: 1px 1px rgb(44, 44, 44);
+	letter-spacing: 0.5px;
+}
+
+.profileFriendList {
+	padding: 20px;
+	margin: 0;
+	list-style: none;
+	border-radius: 10px;
+	border: 1px solid rgb(243, 243, 243);
+	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+}
+
+/* profile PROFILE */
+
+.profileInfoBottom {
+	margin: 10px;
+}
+
+.profileInfoItem {
+	margin-bottom: 10px;
+}
+
+.profileInfoKey {
+	font-weight: 500;
+	margin-right: 10px;
+	line-height: 20px;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgb(255, 255, 255);
+	text-shadow: 1px 1px lightgray;
+}
+
+.profileInfoValue {
+	font-weight: 400;
+	font-size: 18px;
+}
+
+.profileFollowings {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.profileFollowing {
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+	margin: 10px;
+}
+
+.profileFollowingImg {
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 5px;
+	margin: 7px;
+	border: 1px solid rgb(190, 203, 247);
+}
