@@ -7,7 +7,14 @@ import React from "react";
 
 function Feed() {
 	return (
-		<div className="feed">
+		<div
+			className="feed"
+			style={{
+				backgroundImage: `url(${"/assets/feed-colors2.jpg"})`,
+				backgroundRepeat: "no-repeat",
+				backgroundPosition: "center center",
+			}}
+		>
 			<div className="feedWrapper">
 				<Share />
 				{Posts.map((post) => (

@@ -9,7 +9,7 @@ function Profile() {
 		<div
 			className="profile"
 			style={{
-				backgroundImage: `url(${"/assets/colors.jpg"})`,
+				backgroundImage: `url(${"/assets/profile-colors.jpg"})`,
 				backgroundRepeat: "no-repeat",
 			}}
 		>
