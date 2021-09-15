@@ -66,8 +66,9 @@
 	top: 150px;
 	border: 1px solid rgb(190, 203, 247);
 	outline: 2px solid white;
-	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
 }
 
 .profileUserImg:hover {
@@ -84,7 +85,7 @@
 	border: 1px solid rgb(243, 243, 243);
 	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-	background-color: rgba(243, 243, 243, 0.5);
+	background-color: rgba(243, 243, 243, 0.7);
 }
 
 .profileInfoName {
@@ -107,7 +108,7 @@
 	-webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
 	padding: 10px;
-	background-color: rgba(243, 243, 243, 0.6);
+	background-color: rgba(243, 243, 243, 0.8);
 }
 
 .profileTitle {
@@ -164,7 +165,7 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 	cursor: pointer;
-	margin: 10px;
+	margin: 5px;
 }
 
 .profileFollowingImg {

@@ -124,7 +124,13 @@ function Profile() {
 						</div>
 					</div>
 				</div>
-				<hr />
+				<hr
+					style={{
+						width: "90%",
+						margin: "0px auto",
+						color: "whitesmoke",
+					}}
+				/>
 				{/* Feed */}
 				<div className="feedWrapper">
 					{Posts.map((post) => (
