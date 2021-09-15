@@ -46,11 +46,12 @@
 }
 
 .registerDesc {
-	font-size: 16px;
-	color: aliceblue;
-	font-weight: 300;
-	width: 80%;
-	margin: 10px auto 30px;
+	font-size: 22px;
+	color: rgb(255, 255, 255);
+	text-shadow: 1px 1px rgb(68, 68, 68);
+	font-weight: 500;
+	width: 85%;
+	margin: 5px auto;
 	max-width: 200px;
 	letter-spacing: 0.5px;
 }
