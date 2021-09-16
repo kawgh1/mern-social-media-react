@@ -1,6 +1,8 @@
 import "./Register.css";
 
 export default function Register() {
+	// public folder for photos
+	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 	return (
 		<div
 			className="register"
@@ -35,7 +37,7 @@ export default function Register() {
 						/>
 						<button className="registerButton">
 							<img
-								src="/logo512.png"
+								src={PublicFolder + "logo512.png"}
 								alt="react"
 								className="logo-img"
 								style={{

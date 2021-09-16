@@ -54,13 +54,13 @@ function Post({ post }) {
 					<div className="postBottomLeft">
 						<img
 							className="likeIcon"
-							src="assets/images/like.png"
+							src={PublicFolder + "images/like.png"}
 							onClick={likeHandler}
 							alt=""
 						/>
 						<img
 							className="likeIcon"
-							src="assets/images/heart.png"
+							src={PublicFolder + "images/heart.png"}
 							onClick={likeHandler}
 							alt=""
 						/>

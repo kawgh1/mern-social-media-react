@@ -4,6 +4,8 @@ import "./UserProfile.css";
 import { Posts } from "../../dummyData";
 
 function Profile() {
+	// public folder for photos
+	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 	return (
 		<div
 			className="profile"
@@ -19,12 +21,12 @@ function Profile() {
 					<div className="profileCover">
 						<img
 							className="profileCoverImg"
-							src="assets/post/3.jpeg"
+							src={`${PublicFolder}post/3.jpeg`}
 							alt=""
 						/>
 						<img
 							className="profileUserImg"
-							src="assets/person/7.jpeg"
+							src={`${PublicFolder}person/1.jpeg`}
 							alt=""
 						/>
 					</div>
@@ -60,7 +62,7 @@ function Profile() {
 					<div className="profileFollowings">
 						<div className="profileFollowing">
 							<img
-								src="assets/person/1.jpeg"
+								src={`${PublicFolder}person/1.jpeg`}
 								alt=""
 								className="profileFollowingImg"
 							/>
@@ -70,7 +72,7 @@ function Profile() {
 						</div>
 						<div className="profileFollowing">
 							<img
-								src="assets/person/2.jpeg"
+								src={`${PublicFolder}person/2.jpeg`}
 								alt=""
 								className="profileFollowingImg"
 							/>
@@ -80,7 +82,7 @@ function Profile() {
 						</div>
 						<div className="profileFollowing">
 							<img
-								src="assets/person/3.jpeg"
+								src={`${PublicFolder}person/3.jpeg`}
 								alt=""
 								className="profileFollowingImg"
 							/>
@@ -90,7 +92,7 @@ function Profile() {
 						</div>
 						<div className="profileFollowing">
 							<img
-								src="assets/person/4.jpeg"
+								src={`${PublicFolder}person/4.jpeg`}
 								alt=""
 								className="profileFollowingImg"
 							/>
@@ -100,7 +102,7 @@ function Profile() {
 						</div>
 						<div className="profileFollowing">
 							<img
-								src="assets/person/5.jpeg"
+								src={`${PublicFolder}person/5.jpeg`}
 								alt=""
 								className="profileFollowingImg"
 							/>
@@ -110,7 +112,7 @@ function Profile() {
 						</div>
 						<div className="profileFollowing">
 							<img
-								src="assets/person/6.jpeg"
+								src={`${PublicFolder}person/6.jpeg`}
 								alt=""
 								className="profileFollowingImg"
 							/>

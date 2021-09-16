@@ -1,6 +1,8 @@
 import "./Login.css";
 
 export default function Login() {
+	// public folder for photos
+	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 	return (
 		<div
 			className="login"
@@ -24,7 +26,7 @@ export default function Login() {
 						<input placeholder="Password" className="loginInput" />
 						<button className="loginButton">
 							<img
-								src="/logo512.png"
+								src={PublicFolder + "logo512.png"}
 								alt="react"
 								className="logo-img"
 								style={{

@@ -23,7 +23,7 @@ function Rightbar({ profile }) {
 				</div>
 				<img
 					className="rightbarAd"
-					src="/assets/images/ad.png"
+					src="/assets/images/ad1.png"
 					alt="Ad"
 				/>
 
