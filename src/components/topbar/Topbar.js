@@ -9,6 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import React from "react";
 import "./Topbar.css";
+import { Link } from "react-router-dom";
 
 function Topbar() {
 	// detect if on desktop or mobile
@@ -43,12 +44,20 @@ function Topbar() {
 				<div className="topbarContainer">
 					<div className="topbarLeft">
 						<div className="topbarLeft">
-							<img
-								src={PublicFolder + "logo512.png"}
-								alt="react"
-								className="logo-img"
-							/>
-							<span className="logo">reactsocial</span>
+							<Link
+								to="/"
+								style={{
+									textDecoration: "none",
+									display: "flex",
+								}}
+							>
+								<img
+									src={PublicFolder + "logo512.png"}
+									alt="react"
+									className="logo-img-topbar"
+								/>
+								<span className="logo">reactsocial</span>
+							</Link>
 						</div>
 					</div>
 					<div className="topbarCenter">
@@ -91,9 +100,9 @@ function Topbar() {
 				<div className="topbarContainer">
 					<div className="topbarLeft">
 						<img
-							src="/logo512.png"
+							src={PublicFolder + "logo512.png"}
 							alt="react"
-							className="logo-img"
+							className="logo-img-topbar"
 						/>
 						<span className="logo">social</span>
 					</div>
