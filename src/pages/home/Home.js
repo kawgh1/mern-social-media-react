@@ -27,7 +27,7 @@ const Home = () => {
 					<div
 						className="homeContainer"
 						style={{
-							backgroundImage: `url(${"/assets/feed-colors2.jpg"})`,
+							backgroundImage: `url(${"/assets/images/feed-colors2.jpg"})`,
 							backgroundRepeat: "no-repeat",
 							backgroundPosition: "center center",
 						}}

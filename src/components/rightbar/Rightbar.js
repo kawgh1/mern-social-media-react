@@ -6,16 +6,27 @@ import React from "react";
 
 function Rightbar({ profile }) {
 	const HomeRightbar = () => {
+		// public folder for photos
+		const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 		return (
 			<>
 				<div className="birthdayContainer">
-					<img className="birthdayImg" src="assets/gift.png" alt="" />
+					<img
+						className="birthdayImg"
+						src="/assets/images/gift.png"
+						alt=""
+					/>
 					<span className="birthdayText">
 						<b>Pola Foster</b> and <b>3 other friends</b> have a
 						birhday today.
 					</span>
 				</div>
-				<img className="rightbarAd" src="assets/ad.png" alt="" />
+				<img
+					className="rightbarAd"
+					src="/assets/images/ad.png"
+					alt="Ad"
+				/>
+
 				<h4 className="rightbarTitle">Online Friends</h4>
 				<ul className="rightbarFriendList">
 					{Users.map((user) => (

@@ -27,7 +27,7 @@ const Profile = () => {
 					<div
 						className="profile"
 						style={{
-							backgroundImage: `url(${"/assets/profile-colors8.webp"})`,
+							backgroundImage: `url(${"/assets/images/profile-colors8.webp"})`,
 							backgroundRepeat: "no-repeat",
 							backgroundPosition: "center center",
 							backgroundSize: "fill",

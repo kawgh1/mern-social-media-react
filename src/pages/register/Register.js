@@ -5,7 +5,7 @@ export default function Register() {
 		<div
 			className="register"
 			style={{
-				backgroundImage: `url(${"/assets/profile-colors.jpg"})`,
+				backgroundImage: `url(${"/assets/images/profile-colors.jpg"})`,
 				backgroundRepeat: "no-repeat",
 				backgroundPosition: "center center",
 				backgroundSize: "fill",

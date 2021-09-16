@@ -1,9 +1,5 @@
-import { CallReceived } from "@material-ui/icons";
 import React from "react";
-import { Users } from "../../dummyData";
-import Online from "../online/Online";
 import Post from "../post/Post";
-import Share from "../share/Share";
 import "./UserProfile.css";
 import { Posts } from "../../dummyData";
 
@@ -12,7 +8,7 @@ function Profile() {
 		<div
 			className="profile"
 			style={{
-				backgroundImage: `url(${"/assets/profile-colors8.webp"})`,
+				backgroundImage: `url(${"/assets/images/profile-colors8.webp"})`,
 				backgroundRepeat: "no-repeat",
 				backgroundPosition: "center center",
 				backgroundSize: "fill",

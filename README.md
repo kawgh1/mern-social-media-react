@@ -8,6 +8,10 @@
 -   ### Material UI
     -   npm install --save @material-ui/core
     -   npm install --save @material-ui/icons
+-   ### React Router
+    -   npm install react-router-dom
+    -   #### Documentation
+    -   https://reactrouter.com/web/guides/quick-start
 
 ## Things I added
 

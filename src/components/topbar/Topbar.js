@@ -15,6 +15,8 @@ function Topbar() {
 	const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
 	// navbar open close
 	const [navbarOpen, setNavbarOpen] = useState(false);
+	// public folder for photos
+	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
 	const updateMedia = () => {
 		setDesktop(window.innerWidth > 800);
@@ -42,7 +44,7 @@ function Topbar() {
 					<div className="topbarLeft">
 						<div className="topbarLeft">
 							<img
-								src="/logo512.png"
+								src={PublicFolder + "logo512.png"}
 								alt="react"
 								className="logo-img"
 							/>

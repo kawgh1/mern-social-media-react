@@ -5,7 +5,7 @@ export default function Login() {
 		<div
 			className="login"
 			style={{
-				backgroundImage: `url(${"/assets/profile-colors7.webp"})`,
+				backgroundImage: `url(${"/assets/images/profile-colors7.webp"})`,
 				backgroundRepeat: "no-repeat",
 				backgroundPosition: "center center",
 				backgroundSize: "fill",

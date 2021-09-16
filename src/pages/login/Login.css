@@ -221,13 +221,6 @@
 		letter-spacing: 1.5px;
 	}
 
-	.react-span2 {
-		color: #5ff4ff;
-		text-shadow: 1px 1px rgb(41, 149, 211);
-		font-size: 18px;
-		letter-spacing: 0.6px;
-	}
-
 	.loginDesc {
 		font-size: 22px;
 		color: rgb(255, 255, 255);
