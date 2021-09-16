@@ -29,7 +29,8 @@ const Home = () => {
 						style={{
 							backgroundImage: `url(${"/assets/images/feed-colors2.jpg"})`,
 							backgroundRepeat: "no-repeat",
-							backgroundPosition: "center center",
+							backgroundPosition: "center center fixed",
+							backgroundSize: "cover",
 						}}
 					>
 						<Sidebar />

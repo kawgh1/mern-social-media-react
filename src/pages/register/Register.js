@@ -9,8 +9,8 @@ export default function Register() {
 			style={{
 				backgroundImage: `url(${"/assets/images/profile-colors.jpg"})`,
 				backgroundRepeat: "no-repeat",
-				backgroundPosition: "center center",
-				backgroundSize: "fill",
+				backgroundPosition: "center center fixed",
+				backgroundSize: "cover",
 			}}
 		>
 			<div className="registerWrapper">

@@ -9,8 +9,8 @@ export default function Login() {
 			style={{
 				backgroundImage: `url(${"/assets/images/profile-colors7.webp"})`,
 				backgroundRepeat: "no-repeat",
-				backgroundPosition: "center center",
-				backgroundSize: "fill",
+				backgroundPosition: "center center fixed",
+				backgroundSize: "cover",
 			}}
 		>
 			<div className="loginWrapper">

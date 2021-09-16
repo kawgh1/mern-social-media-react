@@ -29,8 +29,8 @@ const Profile = () => {
 						style={{
 							backgroundImage: `url(${"/assets/images/profile-colors8.webp"})`,
 							backgroundRepeat: "no-repeat",
-							backgroundPosition: "center center",
-							backgroundSize: "fill",
+							backgroundPosition: "center center fixed",
+							backgroundSize: "cover",
 						}}
 					>
 						<Sidebar />
