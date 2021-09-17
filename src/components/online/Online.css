@@ -30,4 +30,35 @@
 
 .rightbarUsername {
 	font-weight: 500;
+	/* ellipsis if name too long */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1000px) {
+	.rightbarFriend {
+		margin-bottom: 10px;
+	}
+
+	.rightbarProfileImgContainer {
+		margin-right: 10px;
+	}
+
+	.rightbarProfileImg {
+		width: 32px;
+		height: 32px;
+	}
+
+	.rightbarOnline {
+		width: 9px;
+		height: 9px;
+
+		border: 1px solid white;
+	}
+
+	.rightbarUsername {
+		font-weight: 400;
+	}
 }

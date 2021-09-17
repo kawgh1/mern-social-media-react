@@ -12,6 +12,8 @@
     -   npm install react-router-dom
     -   #### Documentation
     -   https://reactrouter.com/web/guides/quick-start
+-   ### CSS Gradient Generator
+    - https://cssgradient.io/
 
 ## Things I added
 

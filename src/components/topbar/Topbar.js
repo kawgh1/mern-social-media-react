@@ -13,14 +13,14 @@ import { Link } from "react-router-dom";
 
 function Topbar() {
 	// detect if on desktop or mobile
-	const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
+	const [isDesktop, setDesktop] = useState(window.innerWidth > 700);
 	// navbar open close
 	const [navbarOpen, setNavbarOpen] = useState(false);
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
 	const updateMedia = () => {
-		setDesktop(window.innerWidth > 800);
+		setDesktop(window.innerWidth > 700);
 	};
 
 	useEffect(() => {

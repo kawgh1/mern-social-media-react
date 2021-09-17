@@ -4,8 +4,8 @@
 	background: rgb(24, 119, 242);
 	background: linear-gradient(
 		200deg,
-		rgb(44, 126, 233, 0.95) 10%,
-		rgba(29, 35, 65, 0.9) 80%
+		rgb(44, 126, 233, 0.85) 10%,
+		rgba(29, 35, 65, 0.8) 80%
 	);
 	color: white;
 	overflow-y: scroll;
@@ -115,8 +115,26 @@
 	.sidebar {
 		font-size: 12px;
 	}
+
+	.sidebarList {
+		padding: 10px;
+		margin-bottom: 20px;
+	}
+
+	.sidebarListItem {
+		margin-bottom: 10px;
+	}
+
+	.sidebarIcon {
+		margin-right: 10px;
+	}
+
+	.sidebarButton {
+		max-width: 90px;
+		width: 70%;
+	}
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
 	.sidebar {
 		height: fit-content;
 		order: 1;

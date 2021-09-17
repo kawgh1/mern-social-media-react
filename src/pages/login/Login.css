@@ -152,7 +152,7 @@
 	border: 1px solid lightgray;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
 	.login {
 		height: 900px;
 		width: auto;

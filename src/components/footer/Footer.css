@@ -29,6 +29,8 @@
 	width: 100vw;
 	align-items: center;
 	justify-content: space-evenly;
+
+	color: white;
 }
 
 .footerIconBadge {
@@ -44,11 +46,6 @@
 	align-items: center;
 	justify-content: center;
 	font-size: 12px;
-}
-
-.footerIcons {
-	display: flex;
-	color: white;
 }
 
 .footerIconItem {

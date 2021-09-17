@@ -4,8 +4,8 @@
 	background: rgb(24, 119, 242);
 	background: linear-gradient(
 		170deg,
-		rgb(16, 69, 139, 0.95) -10%,
-		rgba(200, 200, 255, 0.85) 90%
+		rgb(16, 69, 139, 0.85) -10%,
+		rgba(200, 200, 255, 0.75) 90%
 	);
 	color: rgb(255, 255, 255);
 	border: 1px solid white;
@@ -112,9 +112,13 @@
 		font-weight: 300;
 		font-size: 12px;
 	}
+
+	.rightbarFriendList {
+		padding: 10px !important;
+	}
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
 	.rightbar {
 		order: 2;
 		height: fit-content;

@@ -104,3 +104,28 @@
 .shareButton:hover {
 	background-color: rgb(91, 182, 235);
 }
+
+@media screen and (max-width: 1000px) {
+	.shareInput {
+		font-weight: 500;
+
+		font-size: 14px;
+	}
+
+	.shareOptions {
+		display: flex;
+		margin-left: 30px;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-evenly;
+	}
+
+	.shareOption {
+		margin-right: 10px;
+	}
+
+	.shareIcon {
+		height: 20px !important;
+		width: 20px !important;
+	}
+}

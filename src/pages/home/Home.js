@@ -8,10 +8,12 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
 	// detect if on desktop or mobile
-	const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
+	const [isTablet, setTablet] = useState(window.innerWidth > 700);
+	const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
 
 	const updateMedia = () => {
-		setDesktop(window.innerWidth > 800);
+		setTablet(window.innerWidth > 700);
+		setDesktop(window.innerWidth > 1000);
 	};
 
 	useEffect(() => {
@@ -38,11 +40,38 @@ const Home = () => {
 						<Rightbar />
 					</div>
 				</>
+			) : isTablet ? (
+				<>
+					<Topbar />
+					<div
+						className="homeContainer"
+						style={{
+							backgroundImage: `url(${"/assets/images/feed-colors2.jpg"})`,
+							backgroundRepeat: "no-repeat",
+							backgroundPosition: "center center fixed",
+							backgroundSize: "cover",
+						}}
+					>
+						<Sidebar />
+						<Feed />
+						<Footer />
+					</div>
+				</>
 			) : (
 				<>
 					<Topbar />
-					<Feed />
-					<Footer />
+					<div
+						className="homeContainer"
+						style={{
+							backgroundImage: `url(${"/assets/images/feed-colors2.jpg"})`,
+							backgroundRepeat: "no-repeat",
+							backgroundPosition: "center center fixed",
+							backgroundSize: "cover",
+						}}
+					>
+						<Feed />
+						<Footer />
+					</div>
 				</>
 			)}
 		</>

@@ -8,10 +8,12 @@ import "./Profile.css";
 
 const Profile = () => {
 	// detect if on desktop or mobile
-	const [isDesktop, setDesktop] = useState(window.innerWidth > 800);
+	const [isTablet, setTablet] = useState(window.innerWidth > 700);
+	const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
 
 	const updateMedia = () => {
-		setDesktop(window.innerWidth > 800);
+		setTablet(window.innerWidth > 700);
+		setDesktop(window.innerWidth > 1000);
 	};
 
 	useEffect(() => {
@@ -38,10 +40,36 @@ const Profile = () => {
 						<Rightbar />
 					</div>
 				</>
+			) : isTablet ? (
+				<>
+					<Topbar />
+					<div
+						className="profile"
+						style={{
+							backgroundImage: `url(${"/assets/images/profile-colors8.webp"})`,
+							backgroundRepeat: "no-repeat",
+							backgroundPosition: "center center fixed",
+							backgroundSize: "cover",
+						}}
+					>
+						<Sidebar />
+						<UserProfile />
+					</div>
+				</>
 			) : (
 				<>
 					<Topbar />
-					<UserProfile />
+					<div
+						className="profile"
+						style={{
+							backgroundImage: `url(${"/assets/images/profile-colors8.webp"})`,
+							backgroundRepeat: "no-repeat",
+							backgroundPosition: "center center fixed",
+							backgroundSize: "cover",
+						}}
+					>
+						<UserProfile />
+					</div>
 					<Footer />
 				</>
 			)}
