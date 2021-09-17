@@ -5,6 +5,10 @@
 
 ## Tools Used
 
+-   ### Axios
+
+    -   npm install axios
+
 -   ### Material UI
     -   npm install --save @material-ui/core
     -   npm install --save @material-ui/icons
@@ -13,7 +17,19 @@
     -   #### Documentation
     -   https://reactrouter.com/web/guides/quick-start
 -   ### CSS Gradient Generator
-    - https://cssgradient.io/
+
+    -   https://cssgradient.io/
+
+-   ### Timeago.js
+
+    -   npm install timeago.js
+        -   https://timeago.org/
+
+-   ### MongoDB (Backend)
+    -   Set up MongoDB Cloud Cluster online
+        -   https://cloud.mongodb.com
+            -   For DB User and IP Address Config go to
+                -   Network Access - Atlas - IP AcessList
 
 ## Things I added
 
@@ -35,3 +51,9 @@
                 ""
             )}
         </span>
+
+-   ## Connecting to Node Rest API
+
+    File: package.json
+
+        "proxy": "http://localhost:8800/api"
