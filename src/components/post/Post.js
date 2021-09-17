@@ -1,35 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Post.css";
 import { MoreVert } from "@material-ui/icons";
-// import { Users } from "../../dummyData";
-import axios from "axios";
-// timeago.js
-import { format } from "timeago.js";
-import { Posts } from "../../dummyData";
+import { Users } from "../../dummyData";
 
 function Post({ post }) {
-	const [like, setLike] = useState(post.likes);
+	const [like, setLike] = useState(post.like);
 	// has user liked the post?
 	const [isLiked, setIsLiked] = useState(false);
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
-	// set User from DB
-	const [user, setUser] = useState({});
 
 	const likeHandler = () => {
 		setLike(isLiked ? like - 1 : like + 1);
 		setIsLiked(!isLiked);
 	};
-
-	//  get user from post from DB
-	useEffect(() => {
-		const fetchUser = async () => {
-			const response = await axios.get(`users/${post.userId}`);
-			// console.log(response);
-			setUser(response.data);
-		};
-		fetchUser();
-	}, [post.userId]);
 
 	return (
 		<div className="post">
@@ -38,28 +22,22 @@ function Post({ post }) {
 					<div className="postTopLeft">
 						<img
 							className="postProfileImg"
-							// src={
-							// 	Users.filter(
-							// 		(user) => user.id === post?.userId
-							// 	)[0].profilePicture
-							// }
 							src={
-								user.profilePicture ||
-								PublicFolder + "person/noAvatar.png"
+								PublicFolder +
+								Users.filter(
+									(user) => user.id === post?.userId
+								)[0].profilePicture
 							}
 							alt=""
 						/>
 						<span className="postUsername">
-							{/* {
+							{
 								Users.filter(
 									(user) => user.id === post?.userId
 								)[0].username
-							} */}
-							{user.username}
+							}
 						</span>
-						<span className="postDate">
-							{format(post.createdAt)}
-						</span>
+						<span className="postDate">{post.date}</span>
 					</div>
 					<div className="postTopRight">
 						<MoreVert />
@@ -69,7 +47,7 @@ function Post({ post }) {
 					<span className="postText">{post?.desc}</span>
 					<img
 						className="postImg"
-						src={PublicFolder + post.img}
+						src={PublicFolder + post.photo}
 						alt=""
 					/>
 				</div>
@@ -88,11 +66,11 @@ function Post({ post }) {
 							alt=""
 						/>
 						<span className="postLikeCounter">
-							{post.likes.length > 0 ? (
+							{like > 0 ? (
 								like === 1 ? (
-									<p>{post.likes.length} like</p>
+									<p>{like} like</p>
 								) : (
-									<p>{post.likes.length} likes</p>
+									<p>{like} likes</p>
 								)
 							) : (
 								""
@@ -101,11 +79,11 @@ function Post({ post }) {
 					</div>
 					<div className="postBottomRight">
 						<span className="postCommentText">
-							{post.comments.length > 0 ? (
+							{post.comment > 0 ? (
 								post.comment === 1 ? (
-									<p>{post.comments.length} comment</p>
+									<p>{post.comment} comment</p>
 								) : (
-									<p>{post.comments.length} comments</p>
+									<p>{post.comment} comments</p>
 								)
 							) : (
 								""
