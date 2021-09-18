@@ -112,7 +112,8 @@ user: {username: john, mail: john@gmail.com ...}
 isFetching: false,
 error: false
 }
-////////// OR
+
+**////////// OR //////////**
 
 **ACTION 2 (failure)**
 LoginFailure({error})
