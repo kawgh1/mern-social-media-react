@@ -4,8 +4,8 @@
 	background: rgb(24, 119, 242);
 	background: linear-gradient(
 		170deg,
-		rgb(16, 69, 139, 0.85) -10%,
-		rgba(200, 200, 255, 0.75) 90%
+		rgb(16, 69, 139, 0.75) -10%,
+		rgba(200, 200, 255, 0.65) 90%
 	);
 	color: rgb(255, 255, 255);
 	border: 1px solid white;
