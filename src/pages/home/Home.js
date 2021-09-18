@@ -5,8 +5,22 @@ import Topbar from "../../components/topbar/Topbar";
 import Footer from "../../components/footer/Footer";
 import "./Home.css";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import axios from "axios";
 
 const Home = () => {
+	// Get current User pass 'username' as props
+	const [user, setUser] = useState({});
+	// get username from URL params react-router
+	const username = useParams().username;
+
+	useEffect(() => {
+		const fetchUser = async () => {
+			const res = await axios.get(`/users?username=${username}`);
+			setUser(res.data);
+		};
+		fetchUser();
+	}, [username]);
 	// detect if on desktop or mobile
 	const [isTablet, setTablet] = useState(window.innerWidth > 700);
 	const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
@@ -36,7 +50,7 @@ const Home = () => {
 						}}
 					>
 						<Sidebar />
-						<Feed />
+						<Feed username={username} user={user} />
 						<Rightbar />
 					</div>
 				</>
@@ -53,7 +67,7 @@ const Home = () => {
 						}}
 					>
 						<Sidebar />
-						<Feed />
+						<Feed username={username} user={user} />
 						<Footer />
 					</div>
 				</>
@@ -69,7 +83,7 @@ const Home = () => {
 							backgroundSize: "cover",
 						}}
 					>
-						<Feed />
+						<Feed username={username} user={user} />
 						<Footer />
 					</div>
 				</>

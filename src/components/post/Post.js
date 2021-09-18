@@ -5,7 +5,7 @@ import { MoreVert } from "@material-ui/icons";
 import axios from "axios";
 // timeago.js
 import { format } from "timeago.js";
-import { Posts } from "../../dummyData";
+// import { Posts } from "../../dummyData";
 import { Link } from "react-router-dom";
 
 function Post({ post }) {

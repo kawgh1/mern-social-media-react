@@ -1,8 +1,17 @@
+import { useRef } from "react";
 import "./Login.css";
 
 export default function Login() {
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+
+	// login form submit
+	const handleClick = (event) => {
+		event.preventDefault();
+	};
+
+	const email = useRef();
+	const password = useRef();
 	return (
 		<div
 			className="login"
@@ -21,9 +30,22 @@ export default function Login() {
 					</span>
 				</div>
 				<div className="loginRight">
-					<div className="loginBox">
-						<input placeholder="Email" className="loginInput" />
-						<input placeholder="Password" className="loginInput" />
+					<form className="loginBox" onSubmit={handleClick}>
+						<input
+							placeholder="Email"
+							className="loginInput"
+							type="email"
+							required
+							ref={email}
+						/>
+						<input
+							placeholder="Password"
+							className="loginInput"
+							type="password"
+							required
+							minLength="6"
+							ref={password}
+						/>
 						<button className="loginButton">
 							<img
 								src={PublicFolder + "logo512.png"}
@@ -37,7 +59,7 @@ export default function Login() {
 						</button>
 
 						<button className="loginRegisterButton">Sign Up</button>
-					</div>
+					</form>
 					<span className="loginForgot">Forgot Password?</span>
 				</div>
 			</div>

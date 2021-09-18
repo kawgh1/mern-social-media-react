@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Post from "../post/Post";
 import "./UserProfile.css";
-import { Posts } from "../../dummyData";
-import Feed from "../feed/Feed";
+// import { Posts } from "../../dummyData";
+// import Feed from "../feed/Feed";
 import axios from "axios";
+import { useParams } from "react-router";
 
-function Profile({ username }) {
+function UserProfile() {
 	const [posts, setPosts] = useState([]);
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
 	// Fetch User
 	const [user, setUser] = useState({});
+	const username = useParams().username;
 
 	useEffect(() => {
 		const fetchUser = async () => {
@@ -32,7 +34,7 @@ function Profile({ username }) {
 			setPosts(response.data);
 		};
 		fetchPosts();
-	}, [username]);
+	}, [username, user._id]);
 
 	return (
 		<div
@@ -81,17 +83,27 @@ function Profile({ username }) {
 					<div className="profileInfoBottom">
 						<div className="profileInfoItem">
 							<span className="profileInfoKey">City:</span>
-							<span className="profileInfoValue">New York</span>
+							<span className="profileInfoValue">
+								{user.city}
+							</span>
 						</div>
 						<div className="profileInfoItem">
 							<span className="profileInfoKey">From:</span>
-							<span className="profileInfoValue">Madrid</span>
+							<span className="profileInfoValue">
+								{user.from}
+							</span>
 						</div>
 						<div className="profileInfoItem">
 							<span className="profileInfoKey">
 								Relationship:
 							</span>
-							<span className="profileInfoValue">Single</span>
+							<span className="rightbarInfoValue">
+								{user.relationship === 1
+									? "Single"
+									: user.relationship === 2
+									? "Married"
+									: "-"}
+							</span>
 						</div>
 					</div>
 					<h4 className="profileTitle">Friends</h4>
@@ -177,4 +189,4 @@ function Profile({ username }) {
 	);
 }
 
-export default Profile;
+export default UserProfile;

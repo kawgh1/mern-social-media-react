@@ -26,14 +26,20 @@ export default function Register() {
 							placeholder="Username"
 							className="registerInput"
 						/>
-						<input placeholder="Email" className="registerInput" />
+						<input
+							placeholder="Email"
+							className="registerInput"
+							type="email"
+						/>
 						<input
 							placeholder="Password"
 							className="registerInput"
+							type="password"
 						/>
 						<input
 							placeholder="Confirm Password"
 							className="registerInput"
+							type="password"
 						/>
 						<button className="registerButton">
 							<img

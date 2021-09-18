@@ -70,3 +70,48 @@
 -   Custom user posts only on User Profile page using javascript filter method, instead of targeting the Feed component
 
     -   https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples
+
+-   ## Context
+    File: context/AuthContext.js
+
+INITIAL_STATE = {
+user: null,
+isFetching: false,
+error: false
+}
+
+\/
+\/
+
+**ACTION 1**
+LoginStart({mail:john@gmail.com, password: 54324})
+
+\/
+\/
+
+**REDUCER**
+\/ update context state
+\/
+
+NEW_STATE = {
+user: null,
+isFetching: true,
+error: false
+}
+
+\/
+\/
+
+**ACTION 2 (success)**
+LoginSuccess({username:john, mail:john@gmail.com, profilePicture:image.png, coverPicture:cover.png, followers[], following[], isAdmin:false})
+\/
+\/
+**REDUCER**
+\/ update context state
+\/
+
+NEW_STATE = {
+user: {username: john, mail: john@gmail.com ...}
+isFetching: false,
+error: false
+}
