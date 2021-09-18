@@ -80,18 +80,15 @@ isFetching: false,
 error: false
 }
 
-\/
-\/
+&#8595;
 
 **ACTION 1**
 LoginStart({mail:john@gmail.com, password: 54324})
 
-\/
-\/
+&#8595;
 
 **REDUCER**
-\/ update context state
-\/
+&#8595; update context state
 
 NEW_STATE = {
 user: null,
@@ -99,16 +96,14 @@ isFetching: true,
 error: false
 }
 
-\/
-\/
+&#8595;
 
 **ACTION 2 (success)**
 LoginSuccess({username:john, mail:john@gmail.com, profilePicture:image.png, coverPicture:cover.png, followers[], following[], isAdmin:false})
-\/
-\/
+
+&#8595;
 **REDUCER**
-\/ update context state
-\/
+&#8595; update context state
 
 NEW_STATE = {
 user: {username: john, mail: john@gmail.com ...}
