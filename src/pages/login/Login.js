@@ -1,17 +1,30 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import "./Login.css";
+import { loginCall } from "../../apiCalls";
+import { AuthContext } from "../../context/AuthContext";
+import { CircularProgress } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 export default function Login() {
+	const email = useRef();
+	const password = useRef();
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+
+	// context from login
+	const { user, isFetching, error, dispatch } = useContext(AuthContext);
 
 	// login form submit
 	const handleClick = (event) => {
 		event.preventDefault();
+		loginCall(
+			{ email: email.current.value, password: password.current.value },
+			dispatch
+		);
 	};
 
-	const email = useRef();
-	const password = useRef();
+	//	console.log(user);
+
 	return (
 		<div
 			className="login"
@@ -46,19 +59,34 @@ export default function Login() {
 							minLength="6"
 							ref={password}
 						/>
-						<button className="loginButton">
-							<img
-								src={PublicFolder + "logo512.png"}
-								alt="react"
-								className="logo-img"
-								style={{
-									marginRight: "5px",
-								}}
-							/>
-							Log In
+						<button
+							className="loginButton"
+							disabled={isFetching}
+							type="submit"
+						>
+							{isFetching ? (
+								<CircularProgress color="white" size="25px" />
+							) : (
+								"Log In"
+							)}
 						</button>
 
-						<button className="loginRegisterButton">Sign Up</button>
+						<Link
+							to="/register"
+							className="loginRegisterButtonLink"
+						>
+							<button className="loginRegisterButton">
+								<img
+									src={PublicFolder + "logo512.png"}
+									alt="react"
+									className="logo-img"
+									style={{
+										marginRight: "5px",
+									}}
+								/>
+								Sign Up
+							</button>
+						</Link>
 					</form>
 					<span className="loginForgot">Forgot Password?</span>
 				</div>
