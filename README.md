@@ -102,11 +102,29 @@ error: false
 LoginSuccess({username:john, mail:john@gmail.com, profilePicture:image.png, coverPicture:cover.png, followers[], following[], isAdmin:false})
 
 &#8595;
+
 **REDUCER**
+
 &#8595; update context state
 
 NEW_STATE = {
 user: {username: john, mail: john@gmail.com ...}
 isFetching: false,
 error: false
+}
+////////// OR
+
+**ACTION 2 (failure)**
+LoginFailure({error})
+
+&#8595;
+
+**REDUCER**
+
+&#8595; update context state
+
+NEW_STATE = {
+user: null,
+isFetching: false,
+error: true
 }
