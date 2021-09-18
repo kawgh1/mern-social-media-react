@@ -36,10 +36,13 @@ function Feed({ username }) {
 			}}
 		>
 			<div className="feedWrapper">
-				<Share />
-				{/* {Posts.map((post) => (
+				{/* 
+					<Share />
+				{Posts.map((post) => (
 					<Post key={post.id} post={post} />
 				))} */}
+
+				{(!username || username === user.username) && <Share />}
 				{posts.map((post) => (
 					<Post key={post._id} post={post} />
 				))}

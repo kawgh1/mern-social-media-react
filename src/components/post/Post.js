@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Post.css";
 import { MoreVert } from "@material-ui/icons";
 // import { Users } from "../../dummyData";
@@ -7,22 +7,22 @@ import axios from "axios";
 import { format } from "timeago.js";
 // import { Posts } from "../../dummyData";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 function Post({ post }) {
-	const [like, setLike] = useState(post.likes);
-	// has user liked the post?
-	const [isLiked, setIsLiked] = useState(false);
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
-	// set User from DB
+
+	const [likes, setLikes] = useState(post.likes.length);
+	// has user liked the post?
+	const [isLiked, setIsLiked] = useState(false);
 	const [user, setUser] = useState({});
+	const { user: currentUser } = useContext(AuthContext);
 
-	const likeHandler = () => {
-		setLike(isLiked ? like - 1 : like + 1);
-		setIsLiked(!isLiked);
-	};
+	useEffect(() => {
+		setIsLiked(post.likes.includes(currentUser._id));
+	}, [currentUser._id, post.likes]);
 
-	//  get user from post from DB
 	useEffect(() => {
 		const fetchUser = async () => {
 			const res = await axios.get(`/users?userId=${post.userId}`);
@@ -31,13 +31,23 @@ function Post({ post }) {
 		fetchUser();
 	}, [post.userId]);
 
+	const likeHandler = () => {
+		try {
+			axios.put("/posts/" + post._id + "/like", {
+				userId: currentUser._id,
+			});
+		} catch (err) {}
+		setLikes(isLiked ? likes - 1 : likes + 1);
+		setIsLiked(!isLiked);
+	};
+
 	return (
 		<div className="post">
 			<div className="postWrapper">
 				<div className="postTop">
 					<div className="postTopLeft">
 						<Link
-							to={`profile/${user.username}`}
+							to={`/profile/${user.username}`}
 							style={{
 								display: "flex",
 								textDecoration: "none",
@@ -53,8 +63,9 @@ function Post({ post }) {
 								// 	)[0].profilePicture
 								// }
 								src={
-									user.profilePicture ||
-									PublicFolder + "person/noAvatar.png"
+									user.profilePicture
+										? PublicFolder + user.profilePicture
+										: PublicFolder + "person/noAvatar.png"
 								}
 								alt=""
 							/>
@@ -94,11 +105,11 @@ function Post({ post }) {
 							alt=""
 						/>
 						<span className="postLikeCounter">
-							{post.likes.length > 0 ? (
-								post.likes.length === 1 ? (
-									<p>{post.likes.length} like</p>
+							{likes > 0 ? (
+								likes === 1 ? (
+									<p>{likes} like</p>
 								) : (
-									<p>{post.likes.length} likes</p>
+									<p>{likes} likes</p>
 								)
 							) : (
 								""

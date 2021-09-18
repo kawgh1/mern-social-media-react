@@ -6,12 +6,14 @@ import {
 	Menu,
 	Close,
 } from "@material-ui/icons";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import React from "react";
 import "./Topbar.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 function Topbar() {
+	const { user } = useContext(AuthContext);
 	// detect if on desktop or mobile
 	const [isDesktop, setDesktop] = useState(window.innerWidth > 700);
 	// navbar open close
@@ -89,22 +91,36 @@ function Topbar() {
 								<span className="topbarIconBadge">1</span>
 							</div>
 						</div>
-						<img
-							src="/assets/person/1.jpeg"
-							alt=""
-							className="topbarImg"
-						/>
+						<Link to={`/profile/${user.username}`}>
+							<img
+								src={
+									user.profilePicture
+										? PublicFolder + user.profilePicture
+										: PublicFolder + "person/noAvatar.png"
+								}
+								alt=""
+								className="topbarImg"
+							/>
+						</Link>
 					</div>
 				</div>
 			) : (
 				<div className="topbarContainer">
 					<div className="topbarLeft">
-						<img
-							src={PublicFolder + "logo512.png"}
-							alt="react"
-							className="logo-img-topbar"
-						/>
-						<span className="logo">social</span>
+						<Link
+							to="/"
+							style={{
+								textDecoration: "none",
+								display: "flex",
+							}}
+						>
+							<img
+								src={PublicFolder + "logo512.png"}
+								alt="react"
+								className="logo-img-topbar"
+							/>
+							<span className="logo">reactsocial</span>
+						</Link>
 					</div>
 					{/* <div className="topbarCenter">
 						<div className="searchbar">
@@ -141,11 +157,17 @@ function Topbar() {
 								<span className="topbarIconBadge">1</span>
 							</div>
 						</div>*/}
-					<img
-						src="/assets/person/1.jpeg"
-						alt=""
-						className="topbarImg"
-					/>
+					<Link to={`/profile/${user.username}`}>
+						<img
+							src={
+								user.profilePicture
+									? PublicFolder + user.profilePicture
+									: PublicFolder + "person/noAvatar.png"
+							}
+							alt=""
+							className="topbarImg"
+						/>
+					</Link>
 					<nav className="navBar">
 						<button onClick={handleToggle}>
 							{navbarOpen ? (

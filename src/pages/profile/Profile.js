@@ -51,7 +51,7 @@ const Profile = () => {
 						}}
 					>
 						<Sidebar />
-						<UserProfile username={username} />
+						<UserProfile />
 						<Rightbar />
 					</div>
 				</>
@@ -68,7 +68,7 @@ const Profile = () => {
 						}}
 					>
 						<Sidebar />
-						<UserProfile username={username} />
+						<UserProfile />
 					</div>
 				</>
 			) : (
@@ -83,7 +83,7 @@ const Profile = () => {
 							backgroundSize: "cover",
 						}}
 					>
-						<UserProfile username={username} />
+						<UserProfile />
 					</div>
 					<Footer />
 				</>

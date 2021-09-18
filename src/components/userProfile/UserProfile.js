@@ -1,40 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Post from "../post/Post";
 import "./UserProfile.css";
 // import { Posts } from "../../dummyData";
 // import Feed from "../feed/Feed";
 import axios from "axios";
-import { useParams } from "react-router";
+import { AuthContext } from "../../context/AuthContext";
 
 function UserProfile() {
+	// Fetch User
+	const { user } = useContext(AuthContext);
 	const [posts, setPosts] = useState([]);
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
-	// Fetch User
-	const [user, setUser] = useState({});
-	const username = useParams().username;
-
-	useEffect(() => {
-		const fetchUser = async () => {
-			const res = await axios.get(`/users?username=${username}`);
-			setUser(res.data);
-			console.log(res.data);
-		};
-		fetchUser();
-	}, [username]);
-
 	// Fetch User Posts
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const response = username
-				? await axios.get("/posts/profile/" + username)
+			const response = user.username
+				? await axios.get("/posts/profile/" + user.username)
 				: await axios.get("/posts/timeline/" + user._id);
 			// console.log(response);
 			setPosts(response.data);
 		};
 		fetchPosts();
-	}, [username, user._id]);
+	}, [user.username, user._id]);
+
+	console.log(
+		"user city",
+		user.city,
+		"user from",
+		user.from,
+		"user relationship",
+		user.relationship
+	);
 
 	return (
 		<div
