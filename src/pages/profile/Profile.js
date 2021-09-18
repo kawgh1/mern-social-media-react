@@ -5,8 +5,23 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
 import UserProfile from "../../components/userProfile/UserProfile";
 import "./Profile.css";
+// get username
+import axios from "axios";
+import { useParams } from "react-router";
 
 const Profile = () => {
+	// Get current User pass 'username' as props
+	const [user, setUser] = useState({});
+	// get username from URL params react-router
+	const username = useParams().username;
+
+	useEffect(() => {
+		const fetchUser = async () => {
+			const res = await axios.get(`/users?username=${username}`);
+			setUser(res.data);
+		};
+		fetchUser();
+	}, [username]);
 	// detect if on desktop or mobile
 	const [isTablet, setTablet] = useState(window.innerWidth > 700);
 	const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
@@ -36,7 +51,7 @@ const Profile = () => {
 						}}
 					>
 						<Sidebar />
-						<UserProfile />
+						<UserProfile username={username} />
 						<Rightbar />
 					</div>
 				</>
@@ -53,7 +68,7 @@ const Profile = () => {
 						}}
 					>
 						<Sidebar />
-						<UserProfile />
+						<UserProfile username={username} />
 					</div>
 				</>
 			) : (
@@ -68,7 +83,7 @@ const Profile = () => {
 							backgroundSize: "cover",
 						}}
 					>
-						<UserProfile />
+						<UserProfile username={username} />
 					</div>
 					<Footer />
 				</>

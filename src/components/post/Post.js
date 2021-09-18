@@ -6,6 +6,7 @@ import axios from "axios";
 // timeago.js
 import { format } from "timeago.js";
 import { Posts } from "../../dummyData";
+import { Link } from "react-router-dom";
 
 function Post({ post }) {
 	const [like, setLike] = useState(post.likes);
@@ -24,9 +25,8 @@ function Post({ post }) {
 	//  get user from post from DB
 	useEffect(() => {
 		const fetchUser = async () => {
-			const response = await axios.get(`users/${post.userId}`);
-			// console.log(response);
-			setUser(response.data);
+			const res = await axios.get(`/users?userId=${post.userId}`);
+			setUser(res.data);
 		};
 		fetchUser();
 	}, [post.userId]);
@@ -36,27 +36,33 @@ function Post({ post }) {
 			<div className="postWrapper">
 				<div className="postTop">
 					<div className="postTopLeft">
-						<img
-							className="postProfileImg"
-							// src={
-							// 	Users.filter(
-							// 		(user) => user.id === post?.userId
-							// 	)[0].profilePicture
-							// }
-							src={
-								user.profilePicture ||
-								PublicFolder + "person/noAvatar.png"
-							}
-							alt=""
-						/>
-						<span className="postUsername">
-							{/* {
-								Users.filter(
-									(user) => user.id === post?.userId
-								)[0].username
-							} */}
-							{user.username}
-						</span>
+						<Link
+							to={`profile/${user.username}`}
+							style={{
+								display: "flex",
+								textDecoration: "none",
+								alignItems: "center",
+								color: "rgb(100, 52, 52)",
+							}}
+						>
+							<img
+								className="postProfileImg"
+								// src={
+								// 	Users.filter(
+								// 		(user) => user.id === post?.userId
+								// 	)[0].profilePicture
+								// }
+								src={
+									user.profilePicture ||
+									PublicFolder + "person/noAvatar.png"
+								}
+								alt=""
+							/>
+
+							<span className="postUsername">
+								{user.username}
+							</span>
+						</Link>
 						<span className="postDate">
 							{format(post.createdAt)}
 						</span>
@@ -89,7 +95,7 @@ function Post({ post }) {
 						/>
 						<span className="postLikeCounter">
 							{post.likes.length > 0 ? (
-								like === 1 ? (
+								post.likes.length === 1 ? (
 									<p>{post.likes.length} like</p>
 								) : (
 									<p>{post.likes.length} likes</p>
@@ -102,7 +108,7 @@ function Post({ post }) {
 					<div className="postBottomRight">
 						<span className="postCommentText">
 							{post.comments.length > 0 ? (
-								post.comment === 1 ? (
+								post.comments.length === 1 ? (
 									<p>{post.comments.length} comment</p>
 								) : (
 									<p>{post.comments.length} comments</p>

@@ -1,11 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Post from "../post/Post";
 import "./UserProfile.css";
 import { Posts } from "../../dummyData";
+import Feed from "../feed/Feed";
+import axios from "axios";
 
-function Profile() {
+function Profile({ username }) {
+	const [posts, setPosts] = useState([]);
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+
+	// Fetch User
+	const [user, setUser] = useState({});
+
+	useEffect(() => {
+		const fetchUser = async () => {
+			const res = await axios.get(`/users?username=${username}`);
+			setUser(res.data);
+			console.log(res.data);
+		};
+		fetchUser();
+	}, [username]);
+
+	// Fetch User Posts
+	useEffect(() => {
+		const fetchPosts = async () => {
+			const response = username
+				? await axios.get("/posts/profile/" + username)
+				: await axios.get("/posts/timeline/" + user._id);
+			// console.log(response);
+			setPosts(response.data);
+		};
+		fetchPosts();
+	}, [username]);
+
 	return (
 		<div
 			className="profile"
@@ -21,20 +49,28 @@ function Profile() {
 					<div className="profileCover">
 						<img
 							className="profileCoverImg"
-							src={`${PublicFolder}post/3.jpeg`}
-							alt=""
+							src={
+								user.coverPicture
+									? PublicFolder + user.coverPicture
+									: PublicFolder + "person/noCover.png"
+							}
+							alt="User Profile Cover"
 						/>
 						<img
 							className="profileUserImg"
-							src={`${PublicFolder}person/1.jpeg`}
-							alt=""
+							src={
+								user.profilePicture
+									? PublicFolder + user.profilePicture
+									: PublicFolder + "person/noAvatar.png"
+							}
+							alt="User Profile Pic"
 						/>
 					</div>
 					<div className="profileInfoTop">
-						<h4 className="profileInfoName">Safak Kocaoglu</h4>
-						<span className="profileInfoDesc">
-							Hello my friends!
-						</span>
+						<div className="profileInfo">
+							<h4 className="profileInfoName">{user.username}</h4>
+							<span className="profileInfoDesc">{user.desc}</span>
+						</div>
 					</div>
 				</div>
 				{/* <div className="profileRightBottom">
@@ -131,8 +167,9 @@ function Profile() {
 				/>
 				{/* Feed */}
 				<div className="feedWrapper">
-					{Posts.map((post) => (
-						<Post key={post.id} post={post} />
+					{/* Only display current User's posts on Profile page */}
+					{posts.map((post) => (
+						<Post key={post._id} post={post} />
 					))}
 				</div>
 			</div>

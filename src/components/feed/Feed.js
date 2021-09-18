@@ -6,19 +6,19 @@ import axios from "axios";
 
 import React, { useEffect, useState } from "react";
 
-function Feed() {
+function Feed({ username }) {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const response = await axios.get(
-				"posts/timeline/6139b4da7ff1b5eea981efdb"
-			);
+			const response = username
+				? await axios.get("/posts/profile/" + username)
+				: await axios.get("/posts/timeline/6139b4da7ff1b5eea981efdb");
 			// console.log(response);
 			setPosts(response.data);
 		};
 		fetchPosts();
-	}, []);
+	}, [username]);
 
 	return (
 		<div

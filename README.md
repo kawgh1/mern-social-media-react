@@ -25,6 +25,13 @@
     -   npm install timeago.js
         -   https://timeago.org/
 
+-   ### React Context API
+
+    -   Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+    -   #### Documentation
+        -   https://reactjs.org/docs/context.html
+
 -   ### MongoDB (Backend)
     -   Set up MongoDB Cloud Cluster online
         -   https://cloud.mongodb.com
@@ -57,3 +64,9 @@
     File: package.json
 
         "proxy": "http://localhost:8800/api"
+
+-   ## Extras
+
+-   Custom user posts only on User Profile page using javascript filter method, instead of targeting the Feed component
+
+    -   https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples
