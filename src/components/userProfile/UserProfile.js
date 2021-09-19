@@ -5,12 +5,29 @@ import "./UserProfile.css";
 // import Feed from "../feed/Feed";
 import axios from "axios";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import {
+	Add,
+	AddCircleOutlineRounded,
+	PlusOneOutlined,
+	PlusOneRounded,
+	Remove,
+} from "@material-ui/icons";
 
 function UserProfile() {
 	const [posts, setPosts] = useState([]);
 	const [user, setUser] = useState({});
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+	// set User's friends
+	const [friends, setFriends] = useState([]);
+	// current User
+	const { user: currentUser, dispatch } = useContext(AuthContext);
+	// following this user?
+	const [followed, setFollowed] = useState(
+		currentUser.following.includes(user?.id)
+	);
 
 	// get username from URL params react-router 'profile/jane' - username 'jane'
 	const username = useParams().username;
@@ -42,25 +59,47 @@ function UserProfile() {
 		fetchPosts();
 	}, [username, user._id]);
 
-	// // Fetch User Posts
-	// useEffect(() => {
-	// 	setTimeout(1000);
-	// 	const fetchPosts = async () => {
-	// 		const response = await axios.get("/posts/profile/" + user.username);
-	// 		// console.log(response);
-	// 		setPosts(response.data);
-	// 	};
-	// 	fetchPosts();
-	// }, [user.username, user._id]);
+	// get User's friends - who they are following
+	useEffect(() => {
+		const getFriends = async () => {
+			try {
+				const friendList = await axios.get(
+					"/users/friends/" + user._id
+				);
+				setFriends(friendList.data);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		getFriends();
+	}, [user]);
 
-	console.log(
-		"user city",
-		user.city,
-		"user from",
-		user.from,
-		"user relationship",
-		user.relationship
-	);
+	// Follow / Unfollow
+	const handleClick = async () => {
+		try {
+			if (followed) {
+				await axios.put(`/users/${user._id}/unfollow`, {
+					userId: currentUser._id,
+				});
+				dispatch({ type: "UNFOLLOW", payload: user._id });
+			} else {
+				await axios.put(`/users/${user._id}/follow`, {
+					userId: currentUser._id,
+				});
+				dispatch({ type: "FOLLOW", payload: user._id });
+			}
+			setFollowed(!followed);
+		} catch (err) {}
+	};
+
+	// console.log(
+	// 	"user city",
+	// 	user.city,
+	// 	"user from",
+	// 	user.from,
+	// 	"user relationship",
+	// 	user.relationship
+	// );
 
 	return (
 		<div
@@ -94,6 +133,17 @@ function UserProfile() {
 							alt="User Profile Pic"
 						/>
 					</div>
+					<div className="followDiv">
+						{/*  Follow Button */}
+						{user.username !== currentUser.username && (
+							<button
+								className="profileFollowButton"
+								onClick={handleClick}
+							>
+								{followed ? "Following" : "Follow"}
+							</button>
+						)}
+					</div>
 					<div className="profileInfoTop">
 						<div className="profileInfo">
 							<h4 className="profileInfoName">{user.username}</h4>
@@ -105,8 +155,8 @@ function UserProfile() {
 								<Rightbar profile />
 							</div> */}
 				<div className="profileRightBottom">
-					<h4 className="profileTitle">User Info</h4>
 					<div className="profileInfoBottom">
+						<h4 className="profileTitle">User Info</h4>
 						<div className="profileInfoItem">
 							<span className="profileInfoKey">City:</span>
 							<span className="profileInfoValue">
@@ -117,6 +167,12 @@ function UserProfile() {
 							<span className="profileInfoKey">From:</span>
 							<span className="profileInfoValue">
 								{user.from}
+							</span>
+						</div>
+						<div className="profileInfoItem">
+							<span className="profileInfoKey">Email:</span>
+							<span className="profileInfoValue">
+								{user.email}
 							</span>
 						</div>
 						<div className="profileInfoItem">
@@ -132,68 +188,45 @@ function UserProfile() {
 							</span>
 						</div>
 					</div>
-					<h4 className="profileTitle">Friends</h4>
+
 					<div className="profileFollowings">
-						<div className="profileFollowing">
-							<img
-								src={`${PublicFolder}person/1.jpeg`}
-								alt=""
-								className="profileFollowingImg"
-							/>
-							<span className="profileFollowingName">
-								Joasdfhn Carasdfter
-							</span>
-						</div>
-						<div className="profileFollowing">
-							<img
-								src={`${PublicFolder}person/2.jpeg`}
-								alt=""
-								className="profileFollowingImg"
-							/>
-							<span className="profileFollowingName">
-								John Caasdfasfasfasfrter
-							</span>
-						</div>
-						<div className="profileFollowing">
-							<img
-								src={`${PublicFolder}person/3.jpeg`}
-								alt=""
-								className="profileFollowingImg"
-							/>
-							<span className="profileFollowingName">
-								Jasdfasdfohn Carter
-							</span>
-						</div>
-						<div className="profileFollowing">
-							<img
-								src={`${PublicFolder}person/4.jpeg`}
-								alt=""
-								className="profileFollowingImg"
-							/>
-							<span className="profileFollowingName">
-								John Carter
-							</span>
-						</div>
-						<div className="profileFollowing">
-							<img
-								src={`${PublicFolder}person/5.jpeg`}
-								alt=""
-								className="profileFollowingImg"
-							/>
-							<span className="profileFollowingName">
-								John Carter
-							</span>
-						</div>
-						<div className="profileFollowing">
-							<img
-								src={`${PublicFolder}person/6.jpeg`}
-								alt=""
-								className="profileFollowingImg"
-							/>
-							<span className="profileFollowingName">
-								John Carter
-							</span>
-						</div>
+						<h4 className="profileTitle">Friends</h4>
+						{friends.map((friend) => (
+							<Link
+								to={"/profile/" + friend.username}
+								style={{
+									textDecoration: "none",
+									color: "black",
+									display: "flex",
+									flexDirection: "column",
+									alignItems: "center",
+									justifyContent: "center",
+								}}
+								key={friend._id}
+							>
+								<div className="profileFollowing">
+									<img
+										src={
+											friend.profilePicture
+												? PublicFolder +
+												  friend.profilePicture
+												: PublicFolder +
+												  "person/noAvatar.png"
+										}
+										alt=""
+										className="profileFollowingImg"
+									/>
+									<span
+										className="profileFollowingName"
+										style={{
+											fontWeight: "bold",
+										}}
+									>
+										{friend.username}
+									</span>
+								</div>
+							</Link>
+						))}
 					</div>
 				</div>
 				<hr

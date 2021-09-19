@@ -22,9 +22,34 @@ function Share() {
 			desc: desc.current.value,
 		};
 
+		if (file) {
+			const data = new FormData();
+			// create unique file name - 10122021cats.png
+			const fileName = Date.now() + file.name;
+			data.append("name", fileName);
+			data.append("file", file);
+			newPost.img = fileName;
+			console.log(newPost);
+
+			try {
+				await axios.post("/upload", data);
+			} catch (err) {
+				console.log("error uploading media", err);
+			}
+		}
+
 		try {
 			await axios.post("/posts", newPost);
-		} catch (error) {}
+			// refresh page after user share post upload
+			// good place to add React FlipMove
+			window.location.reload();
+		} catch (error) {
+			console.log(
+				"Error submitting user post for ",
+				user.username,
+				error
+			);
+		}
 	};
 	return (
 		<div className="share">

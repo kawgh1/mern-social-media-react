@@ -6,6 +6,17 @@
 -   spin up using **npm start** and **http://localhost:3000**
 -   backend is on http://localhost:8800
 
+## Features
+
+-   MERN Stack Social Media App
+-   All user data is tied to back end MongoDB database and server
+-   Users can...
+    -   register and log in
+    -   view other user's profiles
+    -   post text and images
+    -   Follow and unfollow other user's
+    -   Like and unlike user posts
+
 ## Tools Used
 
 -   ### Axios
