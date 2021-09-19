@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Share.css";
 import { PermMedia, Room } from "@material-ui/icons";
 
 import ContactsOutlinedIcon from "@material-ui/icons/ContactsOutlined";
+import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 function Share() {
+	const { user } = useContext(AuthContext);
+	// public folder for photos
+	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 	return (
 		<div className="share">
 			<div className="shareWrapper">
 				<div className="shareTop">
-					<img
-						className="shareProfileImg"
-						src="/assets/person/1.jpeg"
-						alt=""
-					/>
+					<Link to={`/profile/${user.username}`}>
+						<img
+							src={
+								user.profilePicture
+									? PublicFolder + user.profilePicture
+									: PublicFolder + "person/noAvatar.png"
+							}
+							alt=""
+							className="shareProfileImg"
+						/>
+					</Link>
 					<input
-						placeholder="What's on your mind Safak?"
+						placeholder={
+							"What's on your mind " + user.username + "?"
+						}
 						className="shareInput"
 					/>
 				</div>

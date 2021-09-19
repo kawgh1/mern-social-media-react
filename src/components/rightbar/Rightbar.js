@@ -13,7 +13,7 @@ function Rightbar({ profile }) {
 				<div className="birthdayContainer">
 					<img
 						className="birthdayImg"
-						src="/assets/images/gift.png"
+						src={PublicFolder + "gift.png"}
 						alt=""
 					/>
 					<span className="birthdayText">
@@ -23,7 +23,7 @@ function Rightbar({ profile }) {
 				</div>
 				<img
 					className="rightbarAd"
-					src="/assets/images/ad1.png"
+					src={PublicFolder + "ad1.png"}
 					alt="Ad"
 				/>
 

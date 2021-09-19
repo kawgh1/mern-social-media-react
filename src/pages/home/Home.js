@@ -7,6 +7,8 @@ import "./Home.css";
 import { useEffect, useState } from "react";
 
 const Home = () => {
+	// public folder for photos
+	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 	// detect if on desktop or mobile
 	const [isTablet, setTablet] = useState(window.innerWidth > 700);
 	const [isDesktop, setDesktop] = useState(window.innerWidth > 1000);
@@ -29,7 +31,9 @@ const Home = () => {
 					<div
 						className="homeContainer"
 						style={{
-							backgroundImage: `url(${"/assets/images/feed-colors2.jpg"})`,
+							backgroundImage: `url(${
+								PublicFolder + "feed-colors2.jpg"
+							})`,
 							backgroundRepeat: "no-repeat",
 							backgroundPosition: "center center fixed",
 							backgroundSize: "cover",
@@ -46,7 +50,9 @@ const Home = () => {
 					<div
 						className="homeContainer"
 						style={{
-							backgroundImage: `url(${"/assets/images/feed-colors2.jpg"})`,
+							backgroundImage: `url(${
+								PublicFolder + "feed-colors2.jpg"
+							})`,
 							backgroundRepeat: "no-repeat",
 							backgroundPosition: "center center fixed",
 							backgroundSize: "cover",
@@ -60,15 +66,7 @@ const Home = () => {
 			) : (
 				<>
 					<Topbar />
-					<div
-						className="homeContainer"
-						style={{
-							backgroundImage: `url(${"/assets/images/feed-colors2.jpg"})`,
-							backgroundRepeat: "no-repeat",
-							backgroundPosition: "center center fixed",
-							backgroundSize: "cover",
-						}}
-					>
+					<div className="homeContainer">
 						<Feed />
 						<Footer />
 					</div>

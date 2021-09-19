@@ -14,6 +14,8 @@ const Profile = () => {
 	const [user, setUser] = useState({});
 	// get username from URL params react-router
 	const username = useParams().username;
+	// public folder for photos
+	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
 	useEffect(() => {
 		const fetchUser = async () => {
@@ -44,7 +46,9 @@ const Profile = () => {
 					<div
 						className="profile"
 						style={{
-							backgroundImage: `url(${"/assets/images/profile-colors8.webp"})`,
+							backgroundImage: `url(${
+								PublicFolder + "profile-colors8.webp"
+							})`,
 							backgroundRepeat: "no-repeat",
 							backgroundPosition: "center center fixed",
 							backgroundSize: "cover",
@@ -52,7 +56,7 @@ const Profile = () => {
 					>
 						<Sidebar />
 						<UserProfile />
-						<Rightbar />
+						<Rightbar user={user} />
 					</div>
 				</>
 			) : isTablet ? (
@@ -61,7 +65,9 @@ const Profile = () => {
 					<div
 						className="profile"
 						style={{
-							backgroundImage: `url(${"/assets/images/profile-colors8.webp"})`,
+							backgroundImage: `url(${
+								PublicFolder + "profile-colors8.webp"
+							})`,
 							backgroundRepeat: "no-repeat",
 							backgroundPosition: "center center fixed",
 							backgroundSize: "cover",
@@ -74,15 +80,7 @@ const Profile = () => {
 			) : (
 				<>
 					<Topbar />
-					<div
-						className="profile"
-						style={{
-							backgroundImage: `url(${"/assets/images/profile-colors8.webp"})`,
-							backgroundRepeat: "no-repeat",
-							backgroundPosition: "center center fixed",
-							backgroundSize: "cover",
-						}}
-					>
+					<div className="profile">
 						<UserProfile />
 					</div>
 					<Footer />
