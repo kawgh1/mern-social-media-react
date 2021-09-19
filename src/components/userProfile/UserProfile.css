@@ -90,14 +90,22 @@
 	max-width: 750px;
 }
 
+.profileInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 .profileInfoName {
-	font-size: 24px;
+	font-size: 26px;
 	font-weight: 500;
 }
 
 .profileInfoDesc {
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 18px;
+	padding: 5px;
 }
 
 .profileRightBottom {

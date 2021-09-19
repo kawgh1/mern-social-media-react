@@ -4,34 +4,54 @@ import "./UserProfile.css";
 // import { Posts } from "../../dummyData";
 // import Feed from "../feed/Feed";
 import axios from "axios";
+import { useParams } from "react-router";
 
-function UserProfile({ username }) {
+function UserProfile() {
 	const [posts, setPosts] = useState([]);
 	const [user, setUser] = useState({});
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
-	// get user by username
+	// get username from URL params react-router 'profile/jane' - username 'jane'
+	const username = useParams().username;
+
+	// get user by username - pass username 'jane' get back user 'jane' object
+	// set user to display user properties
 	useEffect(() => {
 		const fetchUser = async () => {
 			const res = await axios.get(`/users?username=${username}`);
 			setUser(res.data);
-			console.log(user.username);
 		};
 		fetchUser();
 	}, [username]);
 
-	// Fetch User Posts
+	console.log("user is ", user.username);
+
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const response = user.username
-				? await axios.get("/posts/profile/" + user.username)
+			const response = username
+				? await axios.get("/posts/profile/" + username)
 				: await axios.get("/posts/timeline/" + user._id);
 			// console.log(response);
-			setPosts(response.data);
+			setPosts(
+				response.data.sort((p1, p2) => {
+					return new Date(p2.createdAt) - new Date(p1.createdAt);
+				})
+			);
 		};
 		fetchPosts();
-	}, [user.username, user._id]);
+	}, [username, user._id]);
+
+	// // Fetch User Posts
+	// useEffect(() => {
+	// 	setTimeout(1000);
+	// 	const fetchPosts = async () => {
+	// 		const response = await axios.get("/posts/profile/" + user.username);
+	// 		// console.log(response);
+	// 		setPosts(response.data);
+	// 	};
+	// 	fetchPosts();
+	// }, [user.username, user._id]);
 
 	console.log(
 		"user city",
@@ -103,7 +123,7 @@ function UserProfile({ username }) {
 							<span className="profileInfoKey">
 								Relationship:
 							</span>
-							<span className="rightbarInfoValue">
+							<span className="profileInfoValue">
 								{user.relationship === 1
 									? "Single"
 									: user.relationship === 2
