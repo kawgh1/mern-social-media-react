@@ -111,27 +111,14 @@
 }
 
 .loginButton {
-	border: none;
-	display: flex;
-	background-color: #0e992c;
-	font-size: 20px;
-	font-weight: 500;
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: white;
-}
-
-.loginButtonLink {
-	text-decoration: none;
-	display: flex;
-	align-items: center;
 	height: 45px;
 	border-radius: 10px;
+	border: none;
 	background-color: #0e992c;
 	border: 1px solid lightgray;
 	color: white;
+	font-size: 20px;
+	font-weight: 500;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
@@ -260,14 +247,8 @@
 	}
 
 	.loginButton {
-	}
-
-	.loginButton {
-		font-size: 16px;
-	}
-
-	.loginButtonLink {
 		height: 40px;
+		font-size: 16px;
 		max-width: 125px;
 		min-width: fit-content;
 		margin: 25px auto 15px;

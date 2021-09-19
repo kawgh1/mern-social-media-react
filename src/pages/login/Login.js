@@ -4,10 +4,12 @@ import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 export default function Login() {
 	const email = useRef();
 	const password = useRef();
+	const history = useHistory();
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
@@ -21,6 +23,11 @@ export default function Login() {
 			{ email: email.current.value, password: password.current.value },
 			dispatch
 		);
+		try {
+			history.push("/");
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	//	console.log(user);
@@ -61,22 +68,19 @@ export default function Login() {
 							minLength="6"
 							ref={password}
 						/>
-						<Link to="/" className="loginButtonLink">
-							<button
-								className="loginButton"
-								disabled={isFetching}
-								type="submit"
-							>
-								{isFetching ? (
-									<CircularProgress
-										color="white"
-										size="25px"
-									/>
-								) : (
-									"Log In"
-								)}
-							</button>
-						</Link>
+
+						<button
+							className="loginButton"
+							disabled={isFetching}
+							type="submit"
+							onClick={handleClick}
+						>
+							{isFetching ? (
+								<CircularProgress color="white" size="25px" />
+							) : (
+								"Log In"
+							)}
+						</button>
 
 						<Link
 							to="/register"
