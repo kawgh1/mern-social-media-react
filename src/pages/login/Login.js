@@ -61,17 +61,22 @@ export default function Login() {
 							minLength="6"
 							ref={password}
 						/>
-						<button
-							className="loginButton"
-							disabled={isFetching}
-							type="submit"
-						>
-							{isFetching ? (
-								<CircularProgress color="white" size="25px" />
-							) : (
-								"Log In"
-							)}
-						</button>
+						<Link to="/" className="loginButtonLink">
+							<button
+								className="loginButton"
+								disabled={isFetching}
+								type="submit"
+							>
+								{isFetching ? (
+									<CircularProgress
+										color="white"
+										size="25px"
+									/>
+								) : (
+									"Log In"
+								)}
+							</button>
+						</Link>
 
 						<Link
 							to="/register"
