@@ -13,15 +13,27 @@ function Post({ post }) {
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
+	// likes
 	const [likes, setLikes] = useState(post.likes.length);
 	// has user liked the post?
 	const [isLiked, setIsLiked] = useState(false);
+	// comments
+	const [comments, setComments] = useState(post.comments.length);
+	// has user commented on the post?
+	const [isCommented, setIsCommented] = useState(false);
+
 	const [user, setUser] = useState({});
 	const { user: currentUser } = useContext(AuthContext);
 
+	// likes
 	useEffect(() => {
 		setIsLiked(post.likes.includes(currentUser._id));
 	}, [currentUser._id, post.likes]);
+
+	// comments
+	useEffect(() => {
+		setIsCommented(post.comments.includes(currentUser._id));
+	}, [currentUser._id, post.comments]);
 
 	useEffect(() => {
 		const fetchUser = async () => {
@@ -31,6 +43,7 @@ function Post({ post }) {
 		fetchUser();
 	}, [post.userId]);
 
+	// likes
 	const likeHandler = () => {
 		try {
 			axios.put("/posts/" + post._id + "/like", {
@@ -39,6 +52,17 @@ function Post({ post }) {
 		} catch (err) {}
 		setLikes(isLiked ? likes - 1 : likes + 1);
 		setIsLiked(!isLiked);
+	};
+
+	// comments
+	const commentHandler = () => {
+		try {
+			axios.put("/posts/" + post._id + "/comment", {
+				userId: currentUser._id,
+			});
+		} catch (err) {}
+		setComments(isCommented ? comments - 1 : comments + 1);
+		setIsCommented(!isCommented);
 	};
 
 	return (
@@ -117,12 +141,15 @@ function Post({ post }) {
 						</span>
 					</div>
 					<div className="postBottomRight">
-						<span className="postCommentText">
-							{post.comments.length > 0 ? (
-								post.comments.length === 1 ? (
-									<p>{post.comments.length} comment</p>
+						<span
+							className="postCommentText"
+							onClick={commentHandler}
+						>
+							{comments > 0 ? (
+								comments === 1 ? (
+									<p>{comments} comment</p>
 								) : (
-									<p>{post.comments.length} comments</p>
+									<p>{comments} comments</p>
 								)
 							) : (
 								"comment"
