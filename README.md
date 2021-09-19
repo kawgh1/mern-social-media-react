@@ -54,7 +54,7 @@
 
 ## Things I added
 
--   All mobile styling
+-   Most styling, all responsive design
 -   mobile topbar dropdown menu
     -   https://ibaslogic.com/how-to-add-hamburger-menu-in-react/
 -   mobile bottombar for navigation between pages
@@ -72,6 +72,8 @@
                 ""
             )}
         </span>
+
+-   User Sign Out functionality
 
 -   ## Connecting to Node Rest API
 
