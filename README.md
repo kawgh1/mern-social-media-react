@@ -3,6 +3,9 @@
 -   View the backend [here](https://github.com/kawgh1/mern-social-media-rest-api)
 -   Based on project by [LamaDev](https://www.youtube.com/watch?v=zM93yZ_8SvE&list=PLj-4DlPRT48lXaz5YLvbLC38m25W9Kmqy&index=2)
 
+-   spin up using **npm start** and **http://localhost:3000**
+-   backend is on http://localhost:8800
+
 ## Tools Used
 
 -   ### Axios
@@ -129,3 +132,12 @@ user: null,
 isFetching: false,
 error: true
 }
+
+## On Post
+
+-   When a user uploads an image on a post, it goes to the backend Node server
+-   Obviously this is a horrible idea for a production social media app
+    -   Should use AWS S3 or similar, but this is for demo and simplicity
+-   Using Multer package
+    -   Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.
+-   https://www.npmjs.com/package/multer

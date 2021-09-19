@@ -81,7 +81,17 @@ const Profile = () => {
 			) : (
 				<>
 					<Topbar />
-					<div className="profile">
+					<div
+						className="profile"
+						style={{
+							backgroundImage: `url(${
+								PublicFolder + "profile-colors8.webp"
+							})`,
+							backgroundRepeat: "no-repeat",
+							backgroundPosition: "center center fixed",
+							backgroundSize: "cover",
+						}}
+					>
 						<UserProfile username={username} />
 					</div>
 					<Footer />
