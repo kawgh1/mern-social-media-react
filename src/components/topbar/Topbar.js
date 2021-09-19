@@ -11,6 +11,7 @@ import React from "react";
 import "./Topbar.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { logOutCall } from "../../apiCalls";
 
 function Topbar() {
 	const { user } = useContext(AuthContext);
@@ -33,6 +34,13 @@ function Topbar() {
 	// navbar handleToggle
 	const handleToggle = () => {
 		setNavbarOpen((prev) => !prev);
+	};
+
+	// context from login
+	const { dispatch } = useContext(AuthContext);
+	// Sign out
+	const handleSignOut = () => {
+		logOutCall(dispatch);
 	};
 
 	// close mobile menu
@@ -102,6 +110,22 @@ function Topbar() {
 								className="topbarImg"
 							/>
 						</Link>
+						<nav className="navBar">
+							<button onClick={handleToggle}>
+								{navbarOpen ? (
+									<Close className="hamburger-icon" />
+								) : (
+									<Menu className="hamburger-icon" />
+								)}
+							</button>
+							<ul
+								className={`menuNav ${
+									navbarOpen ? " showMenu" : ""
+								}`}
+							>
+								<li>Sign Out</li>
+							</ul>
+						</nav>
 					</div>
 				</div>
 			) : (
@@ -113,6 +137,7 @@ function Topbar() {
 								textDecoration: "none",
 								display: "flex",
 							}}
+							onClick={handleSignOut}
 						>
 							<img
 								src={PublicFolder + "logo512.png"}
@@ -122,41 +147,7 @@ function Topbar() {
 							<span className="logo">reactsocial</span>
 						</Link>
 					</div>
-					{/* <div className="topbarCenter">
-						<div className="searchbar">
-							<Search className="searchIcon" />
-							<input
-								type="text"
-								placeholder="Search for your friends!"
-								className="searchInput"
-							/>
-						</div>
-					</div>
-					<div className="topbarRight">
-						{/* <div className="topbarLinks">
-							<span className="topbarLink">Homepage</span>
-							<span className="topbarLink">Timeline</span>
-						</div> 
-						<div className="topbarIcons">
-							<div className="topbarIconItem">
-								<Person
-									style={{ height: "30px", width: "30px" }}
-								/>
-								<span className="topbarIconBadge">1</span>
-							</div>
-							<div className="topbarIconItem">
-								<Chat
-									style={{ height: "30px", width: "30px" }}
-								/>
-								<span className="topbarIconBadge">2</span>
-							</div>
-							<div className="topbarIconItem">
-								<Notifications
-									style={{ height: "30px", width: "30px" }}
-								/>
-								<span className="topbarIconBadge">1</span>
-							</div>
-						</div>*/}
+
 					<Link to={`/profile/${user.username}`}>
 						<img
 							src={
@@ -181,9 +172,18 @@ function Topbar() {
 								navbarOpen ? " showMenu" : ""
 							}`}
 						>
-							<li>Homepage</li>
-							<li>Timeline</li>
-							<li>What it do</li>
+							<li>
+								<Link
+									to="/login"
+									style={{
+										textDecoration: "none",
+										color: "white",
+									}}
+									onClick={handleSignOut}
+								>
+									Sign Out
+								</Link>
+							</li>
 						</ul>
 					</nav>
 				</div>

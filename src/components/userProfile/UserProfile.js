@@ -7,13 +7,6 @@ import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import {
-	Add,
-	AddCircleOutlineRounded,
-	PlusOneOutlined,
-	PlusOneRounded,
-	Remove,
-} from "@material-ui/icons";
 
 function UserProfile() {
 	const [posts, setPosts] = useState([]);
@@ -42,7 +35,7 @@ function UserProfile() {
 		fetchUser();
 	}, [username]);
 
-	console.log("user is ", user.username);
+	// console.log("user is ", user.username);
 
 	useEffect(() => {
 		const fetchPosts = async () => {
@@ -102,15 +95,7 @@ function UserProfile() {
 	// );
 
 	return (
-		<div
-			className="profile"
-			style={{
-				backgroundImage: `url(${"/assets/images/profile-colors8.webp"})`,
-				backgroundRepeat: "no-repeat",
-				backgroundPosition: "center center",
-				backgroundSize: "fill",
-			}}
-		>
+		<div className="profile">
 			<div className="profileRight">
 				<div className="profileRightTop">
 					<div className="profileCover">

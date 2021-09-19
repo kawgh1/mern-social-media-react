@@ -56,8 +56,8 @@ const Profile = () => {
 						}}
 					>
 						<Sidebar />
-						<UserProfile username={username} />
-						<Rightbar user={user} />
+						<UserProfile username={username} user={user} />
+						<Rightbar />
 					</div>
 				</>
 			) : isTablet ? (
@@ -75,7 +75,7 @@ const Profile = () => {
 						}}
 					>
 						<Sidebar />
-						<UserProfile username={username} />
+						<UserProfile username={username} user={user} />
 					</div>
 				</>
 			) : (
@@ -92,7 +92,7 @@ const Profile = () => {
 							backgroundSize: "cover",
 						}}
 					>
-						<UserProfile username={username} />
+						<UserProfile username={username} user={user} />
 					</div>
 					<Footer />
 				</>

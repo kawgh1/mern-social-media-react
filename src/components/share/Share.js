@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import "./Share.css";
-import { PermMedia, Room, StorefrontOutlined } from "@material-ui/icons";
+import { PermMedia, Room } from "@material-ui/icons";
 
 import ContactsOutlinedIcon from "@material-ui/icons/ContactsOutlined";
 import { AuthContext } from "../../context/AuthContext";
