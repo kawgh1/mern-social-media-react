@@ -1,16 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import Post from "../post/Post";
 import "./UserProfile.css";
-// import { Posts } from "../../dummyData";
-// import Feed from "../feed/Feed";
 import axios from "axios";
-import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-function UserProfile() {
-	const [posts, setPosts] = useState([]);
-	const [user, setUser] = useState({});
+function UserProfile({ user, username }) {
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 	// set User's friends
@@ -19,25 +14,29 @@ function UserProfile() {
 	const { user: currentUser, dispatch } = useContext(AuthContext);
 	// following this user?
 	const [followed, setFollowed] = useState(
-		currentUser.following.includes(user?.id)
+		currentUser.following.includes(user?._id)
 	);
 
-	// get username from URL params react-router 'profile/jane' - username 'jane'
-	const username = useParams().username;
+	const [posts, setPosts] = useState([]);
 
-	// get user by username - pass username 'jane' get back user 'jane' object
-	// set user to display user properties
+	// get User's friends - who they are following
 	useEffect(() => {
-		const fetchUser = async () => {
-			const res = await axios.get(`/users?username=${username}`);
-			setUser(res.data);
+		const getFriends = async () => {
+			try {
+				const friendList = await axios.get(
+					"/users/friends/" + user._id
+				);
+
+				setFriends(friendList.data);
+			} catch (err) {
+				console.log(err);
+			}
 		};
-		fetchUser();
-	}, [username]);
-
-	// console.log("user is ", user.username);
+		getFriends();
+	}, [user]);
 
 	useEffect(() => {
+		let isPostsSubscribed = true;
 		const fetchPosts = async () => {
 			const response = username
 				? await axios.get("/posts/profile/" + username)
@@ -50,22 +49,9 @@ function UserProfile() {
 			);
 		};
 		fetchPosts();
+		// cancel subscription to useEffect
+		return () => (isPostsSubscribed = false);
 	}, [username, user._id]);
-
-	// get User's friends - who they are following
-	useEffect(() => {
-		const getFriends = async () => {
-			try {
-				const friendList = await axios.get(
-					"/users/friends/" + user._id
-				);
-				setFriends(friendList.data);
-			} catch (err) {
-				console.log(err);
-			}
-		};
-		getFriends();
-	}, [user]);
 
 	// Follow / Unfollow
 	const handleClick = async () => {
@@ -84,15 +70,6 @@ function UserProfile() {
 			setFollowed(!followed);
 		} catch (err) {}
 	};
-
-	// console.log(
-	// 	"user city",
-	// 	user.city,
-	// 	"user from",
-	// 	user.from,
-	// 	"user relationship",
-	// 	user.relationship
-	// );
 
 	return (
 		<div className="profile">
@@ -120,13 +97,15 @@ function UserProfile() {
 					</div>
 					<div className="followDiv">
 						{/*  Follow Button */}
-						{user.username !== currentUser.username && (
+						{user.username !== currentUser.username ? (
 							<button
 								className="profileFollowButton"
 								onClick={handleClick}
 							>
 								{followed ? "Following" : "Follow"}
 							</button>
+						) : (
+							""
 						)}
 					</div>
 					<div className="profileInfoTop">

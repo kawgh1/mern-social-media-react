@@ -154,3 +154,8 @@ error: true
 -   Using Multer package
     -   Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.
 -   https://www.npmjs.com/package/multer
+
+## ESLint Help with Hooks
+
+**npm install eslint-plugin-react-hooks --save-dev**
+https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks

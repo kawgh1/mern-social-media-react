@@ -101,6 +101,7 @@
 	border-color: white;
 	color: rgb(255, 255, 255);
 	padding: 4px 14px 3px;
+	cursor: pointer;
 
 	margin: 1px auto;
 }

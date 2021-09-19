@@ -123,7 +123,18 @@ function Topbar() {
 									navbarOpen ? " showMenu" : ""
 								}`}
 							>
-								<li>Sign Out</li>
+								<li>
+									<Link
+										to="/login"
+										style={{
+											textDecoration: "none",
+											color: "white",
+										}}
+										onClick={handleSignOut}
+									>
+										Sign Out
+									</Link>
+								</li>
 							</ul>
 						</nav>
 					</div>
@@ -137,7 +148,6 @@ function Topbar() {
 								textDecoration: "none",
 								display: "flex",
 							}}
-							onClick={handleSignOut}
 						>
 							<img
 								src={PublicFolder + "logo512.png"}
