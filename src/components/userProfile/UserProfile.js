@@ -4,14 +4,22 @@ import "./UserProfile.css";
 // import { Posts } from "../../dummyData";
 // import Feed from "../feed/Feed";
 import axios from "axios";
-import { AuthContext } from "../../context/AuthContext";
 
-function UserProfile() {
-	// Fetch User
-	const { user } = useContext(AuthContext);
+function UserProfile({ username }) {
 	const [posts, setPosts] = useState([]);
+	const [user, setUser] = useState({});
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+
+	// get user by username
+	useEffect(() => {
+		const fetchUser = async () => {
+			const res = await axios.get(`/users?username=${username}`);
+			setUser(res.data);
+			console.log(user.username);
+		};
+		fetchUser();
+	}, [username]);
 
 	// Fetch User Posts
 	useEffect(() => {

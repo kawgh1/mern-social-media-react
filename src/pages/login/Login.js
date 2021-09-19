@@ -12,7 +12,7 @@ export default function Login() {
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
 	// context from login
-	const { user, isFetching, error, dispatch } = useContext(AuthContext);
+	const { isFetching, dispatch } = useContext(AuthContext);
 
 	// login form submit
 	const handleClick = (event) => {

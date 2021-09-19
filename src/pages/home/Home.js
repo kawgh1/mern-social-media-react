@@ -66,7 +66,17 @@ const Home = () => {
 			) : (
 				<>
 					<Topbar />
-					<div className="homeContainer">
+					<div
+						className="homeContainer"
+						style={{
+							backgroundImage: `url(${
+								PublicFolder + "feed-colors2.jpg"
+							})`,
+							backgroundRepeat: "no-repeat",
+							backgroundPosition: "center center fixed",
+							backgroundSize: "cover",
+						}}
+					>
 						<Feed />
 						<Footer />
 					</div>

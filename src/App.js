@@ -30,7 +30,7 @@ function App() {
 					<Profile />
 				</Route> */}
 				<Route exact path="/">
-					{user ? <Home /> : <Register />}
+					{user ? <Home /> : <Login />}
 				</Route>
 				<Route path="/login">
 					{user ? <Redirect to="/" /> : <Login />}

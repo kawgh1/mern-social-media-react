@@ -27,14 +27,7 @@ function Feed({ username }) {
 	}, [username, user._id]);
 
 	return (
-		<div
-			className="feed"
-			style={{
-				backgroundImage: `url(${"/assets/images/feed-colors2.jpg"})`,
-				backgroundRepeat: "no-repeat",
-				backgroundPosition: "center center",
-			}}
-		>
+		<div className="feed">
 			<div className="feedWrapper">
 				{/* 
 					<Share />

@@ -125,7 +125,7 @@ function Post({ post }) {
 									<p>{post.comments.length} comments</p>
 								)
 							) : (
-								""
+								"comment"
 							)}
 						</span>
 					</div>

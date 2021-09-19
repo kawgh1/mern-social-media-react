@@ -17,6 +17,7 @@ const Profile = () => {
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 
+	// get user by username
 	useEffect(() => {
 		const fetchUser = async () => {
 			const res = await axios.get(`/users?username=${username}`);
@@ -55,7 +56,7 @@ const Profile = () => {
 						}}
 					>
 						<Sidebar />
-						<UserProfile />
+						<UserProfile username={username} />
 						<Rightbar user={user} />
 					</div>
 				</>
@@ -74,14 +75,14 @@ const Profile = () => {
 						}}
 					>
 						<Sidebar />
-						<UserProfile />
+						<UserProfile username={username} />
 					</div>
 				</>
 			) : (
 				<>
 					<Topbar />
 					<div className="profile">
-						<UserProfile />
+						<UserProfile username={username} />
 					</div>
 					<Footer />
 				</>

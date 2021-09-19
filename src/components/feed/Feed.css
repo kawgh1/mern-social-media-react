@@ -1,7 +1,8 @@
 .feed {
 	flex: 5.5;
 	height: calc(100vh - 70px);
-	background-color: rgb(228, 244, 250);
+	/* transparent */
+	background-color: rgba(117, 210, 247, 0.3);
 	color: rgb(44, 44, 44);
 	border: 1px solid white;
 }
