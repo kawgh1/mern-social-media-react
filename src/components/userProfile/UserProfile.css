@@ -65,7 +65,7 @@
 	margin: auto;
 	top: 150px;
 	border: 1px solid rgb(190, 203, 247);
-	outline: 2px solid white;
+	border: 2px solid white;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
 	-moz-box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 15px;
@@ -204,12 +204,19 @@
 
 .profileFollowings {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	padding: 5px;
 }
 
+.profileFriends {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 10px;
+}
 .profileFollowing {
 	display: flex;
 	flex-direction: column;
@@ -253,6 +260,19 @@
 		height: 115px;
 		width: 115px;
 		top: 170px;
+	}
+
+	.profileRightBottom {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		justify-content: center;
+
+		padding: 5px;
+		background-color: rgba(243, 243, 243, 0.85);
+		width: 90%;
+		max-width: 530px;
 	}
 
 	.profileTitle {

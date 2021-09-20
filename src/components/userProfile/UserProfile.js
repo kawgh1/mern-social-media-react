@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Post from "../post/Post";
 import "./UserProfile.css";
 import axios from "axios";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 function UserProfile({ user, username }) {
+	const ref = useRef();
 	// public folder for photos
 	const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
 	// set User's friends
@@ -101,6 +102,7 @@ function UserProfile({ user, username }) {
 							<button
 								className="profileFollowButton"
 								onClick={handleClick}
+								ref={ref}
 							>
 								{followed ? "Following" : "Follow"}
 							</button>
@@ -153,44 +155,46 @@ function UserProfile({ user, username }) {
 						</div>
 					</div>
 
-					<div className="profileFollowings">
+					<div className="profileFriends">
 						<h4 className="profileTitle">Friends</h4>
-						{friends.map((friend) => (
-							<Link
-								to={"/profile/" + friend.username}
-								style={{
-									textDecoration: "none",
-									color: "black",
-									display: "flex",
-									flexDirection: "column",
-									alignItems: "center",
-									justifyContent: "center",
-								}}
-								key={friend._id}
-							>
-								<div className="profileFollowing">
-									<img
-										src={
-											friend.profilePicture
-												? PublicFolder +
-												  friend.profilePicture
-												: PublicFolder +
-												  "person/noAvatar.png"
-										}
-										alt=""
-										className="profileFollowingImg"
-									/>
-									<span
-										className="profileFollowingName"
-										style={{
-											fontWeight: "bold",
-										}}
-									>
-										{friend.username}
-									</span>
-								</div>
-							</Link>
-						))}
+						<div className="profileFollowings">
+							{friends.map((friend) => (
+								<Link
+									to={"/profile/" + friend.username}
+									style={{
+										textDecoration: "none",
+										color: "black",
+										display: "flex",
+										flexDirection: "column",
+										alignItems: "center",
+										justifyContent: "center",
+									}}
+									key={friend._id}
+								>
+									<div className="profileFollowing">
+										<img
+											src={
+												friend.profilePicture
+													? PublicFolder +
+													  friend.profilePicture
+													: PublicFolder +
+													  "person/noAvatar.png"
+											}
+											alt=""
+											className="profileFollowingImg"
+										/>
+										<span
+											className="profileFollowingName"
+											style={{
+												fontWeight: "bold",
+											}}
+										>
+											{friend.username}
+										</span>
+									</div>
+								</Link>
+							))}
+						</div>
 					</div>
 				</div>
 				<hr
