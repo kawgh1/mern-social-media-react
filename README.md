@@ -1,10 +1,14 @@
 # Front-end React Social Media app
 
+port is set to 4000
+
 -   View the backend [here](https://github.com/kawgh1/mern-social-media-rest-api)
 -   Based on project by [LamaDev](https://www.youtube.com/watch?v=zM93yZ_8SvE&list=PLj-4DlPRT48lXaz5YLvbLC38m25W9Kmqy&index=2)
 
--   spin up using **npm start** and **http://localhost:3000**
+-   spin up using **npm start** and **http://localhost:4000**
 -   backend is on http://localhost:8800
+
+Log in using "john@gmail.com" pw='123456'
 
 ## Features
 
