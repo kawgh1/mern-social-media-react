@@ -4,20 +4,21 @@ import Profile from "./pages/profile/Profile";
 import Register from "./pages/register/Register";
 // React Router
 import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Redirect,
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
 } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
+import Messenger from "./pages/messenger/Messenger";
 
 function App() {
-	const { user } = useContext(AuthContext);
-	return (
-		<Router>
-			<Switch>
-				{/* <Route exact path="/">
+    const { user } = useContext(AuthContext);
+    return (
+        <Router>
+            <Switch>
+                {/* <Route exact path="/">
 					<Home />
 				</Route>
 				<Route path="/login">
@@ -29,21 +30,24 @@ function App() {
 				<Route path="/profile/:username">
 					<Profile />
 				</Route> */}
-				<Route exact path="/">
-					{user ? <Home /> : <Login />}
-				</Route>
-				<Route path="/login">
-					{user ? <Redirect to="/" /> : <Login />}
-				</Route>
-				<Route path="/register">
-					{user ? <Redirect to="/" /> : <Register />}
-				</Route>
-				<Route path="/profile/:username">
-					{user ? <Profile /> : <Login />}
-				</Route>
-			</Switch>
-		</Router>
-	);
+                <Route exact path="/">
+                    {user ? <Home /> : <Login />}
+                </Route>
+                <Route path="/login">
+                    {user ? <Redirect to="/" /> : <Login />}
+                </Route>
+                <Route path="/register">
+                    {user ? <Redirect to="/" /> : <Register />}
+                </Route>
+                <Route path="/messenger">
+                    {!user ? <Redirect to="/" /> : <Messenger />}
+                </Route>
+                <Route path="/profile/:username">
+                    {user ? <Profile /> : <Login />}
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
