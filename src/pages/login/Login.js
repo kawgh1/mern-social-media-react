@@ -5,7 +5,6 @@ import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
-import { Filter } from "@material-ui/icons";
 
 export default function Login() {
     const email = useRef();
@@ -57,8 +56,9 @@ export default function Login() {
                             fontSize: "16px",
                             fontWeight: "400",
                             letterSpacing: "1px",
-                            color: "lime",
-                            textShadow: "rgb(20, 20, 20) 1px 2px 3px",
+                            color: "white",
+                            textShadow:
+                                "0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18",
                         }}
                     >
                         For demo purposes user can log in with username

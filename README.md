@@ -58,6 +58,11 @@ Log in using "john@gmail.com" pw='123456'
 
 ## Things I added
 
+-   neon text shadow
+-   textShadow:
+    "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18",
+    }}
+
 -   Most styling, all responsive design
 -   mobile topbar dropdown menu
     -   https://ibaslogic.com/how-to-add-hamburger-menu-in-react/

@@ -1,15 +1,49 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./Conversation.css";
 
-function Conversation() {
+function Conversation({ conversation, currentUser }) {
+    // public folder for photos
+    const PublicFolder = process.env.REACT_APP_PUBLIC_FOLDER;
+
+    // here user is the user that currentUser is chatting with in the conversation
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        // if (conversation) {
+        // friendId = userId of friend currentUser is chatting with
+        const friendId = conversation.members.find(
+            (member) => member !== currentUser._id
+        );
+
+        const getUser = async () => {
+            try {
+                const res = await axios("/users?userId=" + friendId);
+                console.log(res);
+                setUser(res.data);
+            } catch (err) {
+                console.log(err, err.message);
+            }
+        };
+        getUser();
+        // } else {
+        // conversation = {};
+        // }
+    }, [currentUser, conversation]);
     return (
         <div className="conversation">
             <img
                 className="conversationImg"
-                src="https://images.unsplash.com/photo-1581803118522-7b72a50f7e9f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
-                alt=""
+                src={
+                    user?.profilePic
+                        ? user.profilePic
+                        : PublicFolder + "person/noAvatar.png"
+                }
+                alt={user ? user.username : ""}
             />
-            <span className="conversationName">John Doe</span>
+            <span className="conversationName">
+                {user ? user.username : ""}
+            </span>
         </div>
     );
 }
