@@ -19,23 +19,23 @@
 }
 
 .messageText {
-    padding: 15px;
+    padding: 12px;
     border-radius: 20px;
     background-color: rgb(102, 205, 170, 0.85);
     color: white;
-    max-width: 70%;
+    max-width: 60%;
 }
 
 .messageBottom {
-    font-size: 10px;
+    font-size: 14px;
     letter-spacing: 0.25px;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 1px 70px 1px 60px;
-    color: rgb(39, 13, 13);
-    font-weight: 600;
+    margin: 1px 10% 1px 10%;
+    color: rgb(255, 233, 233);
+    font-weight: 500;
 }
 
 /* user's own messages (ie not whoever he is talking to  */
@@ -44,9 +44,33 @@
 }
 
 .message.own .messageText {
-    background-color: rgba(57, 110, 209, 0.85);
+    background-color: rgba(2, 112, 255, 0.85);
 }
 
 .message.own .messageTop {
     flex-direction: row-reverse;
+}
+
+/* media queries */
+
+@media screen and (max-width: 700px) {
+    .message {
+        margin: 10px auto;
+    }
+
+    .messageImg {
+        margin: auto 10px;
+    }
+
+    .messageText {
+        padding: 9px;
+        max-width: 45%;
+    }
+
+    .messageBottom {
+        font-size: 10px;
+
+        margin: 1px 18% 1px 18%;
+        font-weight: 500;
+    }
 }
