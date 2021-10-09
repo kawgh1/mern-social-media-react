@@ -3,6 +3,7 @@
 port is set to 4000
 
 -   View the backend [here](https://github.com/kawgh1/mern-social-media-rest-api)
+-   View the socket.io implementation [here](https://github.com/kawgh1/mern-social-media)
 -   Based on project by [LamaDev](https://www.youtube.com/watch?v=zM93yZ_8SvE&list=PLj-4DlPRT48lXaz5YLvbLC38m25W9Kmqy&index=2)
 
 -   spin up using **npm start** and **http://localhost:4000**
@@ -51,10 +52,14 @@ Log in using "john@gmail.com" pw='123456'
         -   https://reactjs.org/docs/context.html
 
 -   ### MongoDB (Backend)
+
     -   Set up MongoDB Cloud Cluster online
         -   https://cloud.mongodb.com
             -   For DB User and IP Address Config go to
                 -   Network Access - Atlas - IP AcessList
+
+-   ### Socket.io (Backend)
+    -   Setup Socket.io in [this](https://github.com/kawgh1/mern-social-media) repository
 
 ## Things I added
 
