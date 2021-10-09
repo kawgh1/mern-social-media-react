@@ -35,8 +35,8 @@ function Conversation({ conversation, currentUser }) {
             <img
                 className="conversationImg"
                 src={
-                    user?.profilePic
-                        ? user.profilePic
+                    user?.profilePicture
+                        ? PublicFolder + user.profilePicture
                         : PublicFolder + "person/noAvatar.png"
                 }
                 alt={user ? user.username : ""}

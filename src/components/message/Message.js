@@ -13,8 +13,8 @@ function Message({ message, own }) {
                 <img
                     className="messageImg"
                     src={
-                        own?.profilePic
-                            ? own.profilePic
+                        own?.profilePicture
+                            ? own.profilePicture
                             : PublicFolder + "person/noAvatar.png"
                     }
                     alt={own ? own.username : ""}

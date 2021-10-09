@@ -298,8 +298,17 @@ function Messenger() {
                                                     id=""
                                                     cols="30"
                                                     rows="10"
+                                                    onChange={(e) =>
+                                                        setNewMessage(
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                    value={newMessage}
                                                 ></textarea>
-                                                <button className="chatSubmitButton">
+                                                <button
+                                                    className="chatSubmitButton"
+                                                    onClick={handleSubmit}
+                                                >
                                                     <Send />
                                                 </button>
                                             </div>
