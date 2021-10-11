@@ -9,7 +9,7 @@ import Topbar from "../../components/topbar/Topbar";
 import { AuthContext } from "../../context/AuthContext";
 import "./Messenger.css";
 // socket io
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 
 function Messenger() {
     // public folder for photos
@@ -31,17 +31,17 @@ function Messenger() {
     const scrollRef = useRef();
 
     // socket
-    const [socket, setSocket] = useState(null);
+    // const [socket, setSocket] = useState(null);
 
-    useEffect(() => {
-        setSocket(io("ws://localhost:8900"));
-    }, []);
+    // useEffect(() => {
+    //     setSocket(io("ws://localhost:8900"));
+    // }, []);
 
-    useEffect(() => {
-        socket?.on("welcome", (message) => {
-            console.log(message);
-        });
-    }, [socket]);
+    // useEffect(() => {
+    //     socket?.on("welcome", (message) => {
+    //         console.log(message);
+    //     });
+    // }, [socket]);
 
     useEffect(() => {
         const getConversations = async () => {
